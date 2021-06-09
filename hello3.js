@@ -13,3 +13,6 @@ console.log("나는야 비트캠프 개발자");
 
 console.log("이름: " + studentName);
 
+console.log("띠요오오오옹");
+
+console.log("자습은 어려워 ~~~~");
