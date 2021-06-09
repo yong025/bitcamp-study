@@ -16,3 +16,5 @@ console.log("이름: " + studentName);
 console.log("띠요오오오옹");
 
 console.log("자습은 어려워 ~~~~");
+
+console.log("행복이야 ~");
