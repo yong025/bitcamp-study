@@ -5,3 +5,6 @@ var studentName = "홍길동";
 console.log("이름: " + studentName);
 
 
+console.log("나나나나나나난ㄴ나나나나나ㅏ나난");
+
+
