@@ -4,3 +4,5 @@ console.log("반가워요");
 
 console.log("어제 이시간엔");
 console.log("학원에서 졸았는뎅..ㅎㅎ");
+
+console.log("아주 졸립니다요");
