@@ -1,9 +1,15 @@
-console.log("Hello, javascript2 !!");
-console.log("A개발자");
-console.log("B개발자");
+var i = -1;
+if (i > 0) {
+    console.log("Hello, javascript2 !!"); 
+} else {
+    console.log("HaHa ~~~~~~")
+}
 
 
-console.log("C개발자");
+greeting("홍길동");
+greeting("임꺽정");
+greeting("유관순");
 
-console.log("ABCD개발자");
-
+function greeting(n) {
+    console.log(n+"님 반갑습니다.");
+}
