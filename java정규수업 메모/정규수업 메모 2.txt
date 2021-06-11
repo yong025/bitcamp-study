@@ -1,0 +1,47 @@
+JDK 
+
+-java compiler: 자바언어를 컴퓨터가 이해할 수 있도록 변환(javac.exe)
+-JVM: 변환된 언어를 실행시켜준다.(java.exe)
+java언어($ javac 파일명)>>byte code($java 클래스명)>>실행
+
+git client / server
+
+github.com(git server s/w)
+bitcamp-study(repository)>>pc(git client s/w)(repository)>>최신파일을 checkout(hello.c/readme.md)>>hello2.c생성>>백업명단에 등록($ git add 파일명)
+>>로컬 저장소에 백업($ git commit -m "백업 내용">>로컬 저장소의 변경내용을 서버에 업로드($git push)
+
+서버 Repo. 와 클라이언트 Repo.
+
+local >>$ git add 파일명 >> 백업명단(staging area)(.git\ 백업폴더) >> $ git push >> github.com(bitcamp-study)
+
+***$ " git add . "을 사용하면 변경된 모든것이 백업됨
+***$ git commit -m "ok" 실시
+
+잘못 업로드했을때의 대처
+ex. $ add hello.js >> $ git commit에서 실수로 엔터 >> esc한번 누르고 d누르면 한줄씩 삭제
+화면 나오기 esc 한번 >> 콜론 : >> wq
+
+**강사수업자료
+git clone https://github.com/eomjinyoung/bitcamp-20210607.git
+**학생 실습자료
+git clone https://github.com/yong025/bitcamp-study.git
+
+git 충돌해결
+
+같은 소스를 가지고 A개발자 B개발자가 따로 작업하고 업로드 할 시 오류발생
+작업물 git add . 및 git commit -m "" 로 백업 후 git pull로 서버의 최신화 수정본을 다운로드**꼭 실시** ( 내가 먼저 수정 후 불러들이면 vs code에서 봤을 때, ===를 기준으로 내가 수정한 것/다른 개발자가 수정한 것이 보임)
+필요하지 않은 부분은 삭제/ 이동으로 코드를 합친 후 저장(용어merge)(alt + 방향키로 조정가능)
+A+B작업물을 다시 git add >> git commit -m .. >> git push
+
+git 공유하는 법
+(내것을 공유)
+setting >> manage access >> invite collaborator >>상대방 아이디 입력 >> 상대방이 메일에서 승인하면 공유완료
+(공유 받은 사람)
+$ git clone https://github.com/상대방 아이디/bitcamp-study 내가 설정할 폴더이름
+
+VS CODE 공유방법
+1.LIVE SHARE 앱 설치(EXTENSION PAKC도 설치)
+2.SHARE 클릭
+3.git hub 연결 및 로그인
+4.나오는 화면들은 ok하고 넘기면 됨
+

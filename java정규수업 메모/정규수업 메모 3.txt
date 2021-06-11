@@ -1,0 +1,113 @@
+현재 로컬에 32bit 컴파일 및 공유 주의
+
+특정 local에서만 유효한  컴파일 결과로 생성된 실행파일(.exe)이나, local 경로를 가리키는 설정파일은 공유해도 소용없다.
+백업한 파일 지우는 법(물론 서버에 백업된건 완벽하게 지워지지 않음.)
+
+저장폴더에서 파일 삭제 - cmd에서 add . / add commit -m "" 실시 (삭제 갱신 및 백업) - git push
+
+
+IDE(통합 개발도구) 의 사용자 설정도 공유할 필요가 없다.
+git 저장소에 백업 대상에서 백업하지 말아야 할 파일을 지정할 필요가 있다.(git ingnore 파일)
+
+github 참여자 입장에서 repo. 에서 나가는 방법
+setting - Repository - 아이디 옆 leave
+
+github 공유자 입장에서 repo. 끝내는 방법
+my repository - settings - manage access
+
+vscode에서 .ignore 파일 생성(git백업 제외대상 만들기)
+내부에 .exe / .class 등 제외 확장자 쓰기
+**gitignore.io 라는 사이트에서는 키워드를 치면 백업제외대상을 리스트업해준다.**
+
+*C언어 컴파일 방법
+
+ex. gcc -o hello.exe(만들 파일) hello.c(사용 소스)
+
+*JAVA 컴파일
+
+소스파일과 클래스파일이 섞여있다면 관리가 어려움 >> 소스파일과 클래스파일 분리필요
+한 폴더에 모든 소스파일이 있으면 관리가 어려움 >> 소스파일의 용도에 따라 여러 디렉토리 분산배치
+
+컴파일된 파일 클래스 생성
+$ javac -d ../bin Hello.java 하면 bin폴더에 class파일 생성 
+$ javac -d bin src/Hello2.java 도 같은 뜻
+
+자바프로젝트 폴더
+여러 어플리케이션을 구분해서 개발할 때 >>소스파일과 관련된 파일을 어플리케이션 벼롤 구분해야 한다.(프로젝트라는 단위로 구분한다.)
+
+표준 디렉토리 구조와 컴파일 / 실행
+
+-컴파일
+프로젝트 폴더 $ javac -d bin/main(클래스 만들 장소) src/main/java/Hello.java(소스경로)
+-실행
+프로젝트 폴더 $ java -classpath bin/main(클래스 파일경로) Hello 
+ex. javac -d bin/main(class파일 놓을 경로) bin/main src/main/java/Hello.java(소스파일 경로)
+ex.출력  java -classpath bin/main(class파일 실행하는 경로) Hello
+
+Maven표준 프로젝트 폴더 구조
+Maven: (컴파일, 테스트, 문서생성, 배포파일생성 등 개발 작업(build) 전반을 도와주는 프로그램(도구)) 
+src/
+  main/ application 소스 및 관련 파일을 저장하는 폴더
+  java/ java소스 파일을 저장하는 폴더
+  resources/ 어플리케이션 실행과 관련된 설정파일을 저장하는 폴더
+  webapp/ HTML, CSS, JavaScript, Jsp, Image 등 웹관련 파일을 저장하는 폴더
+test/ 개발하는 동안 단위 테스트 관련 파일을 저장하는 폴더
+  java/ 단위테스트 자바 소스파일을 저장하는 폴더
+  resources/ 단위테스트 실행할 때 사용한 설정 파일을 저장하는 폴더
+
+Gradle 빌드 도구를 이용한 프로젝트 폴더 준비하기
+
+gradle.org에서 압축파일다운
+압축해제 후 bin폴더까지 경로복사
+환경변수 path편집에서 경로 추가 및 $ gradle -v로 확인
+
+gradle 파일 사용
+커맨드창에서 bitcamp-study 폴더로 이동
+mkdir java-basic 폴더생성
+cd java-basic으로 이동
+$ gradle init (빈폴더에 이렇게 작성하면 프로젝트 초기화)
+2 엔터
+3 엔터
+1 엔터
+1 엔터
+1 엔터
+프로젝트명 생성 
+source 패키지 이름 정하기: com.(내가 작업하는 도메인 명)
+java -basic폴더의 main>>java>>README.md 파일 생성 + java파일 함께 넣기
+
+JAVA문법 시작
+
+프로그램 실행 시작점 (entry point)
+C언어 => int main( ) { }
+자바 언어 = >public class xxxx public static void main( - ) { - }
+
+클래스와 패키지
+
+1. Statement - 한개의 완성된 명령문
+2. Function(method) - 실행하는 기능 단위로 여러개의 Statement를 묶어 놓은 것
+3. class - 서로 관련된 기능을 분류하여 묶어 놓은 것
+4. pacaage - 서로 관련된 클래스를 분류하여 둔 폴더
+
+Statement, Method, Class, Package
+package>class>method>statement 크기
+
+자바 패키지 = 디렉토리
+-보통 다른 개발자와 이름 충돌을 방지하기 위해 인터넷 도메인 사용
+ex. com.eomcs.lang.ex01 (naver 프로젝트명, line 작업명)
+
+패키지 멤버 클래스
+(패키지에 소속된 클래스는 반드시 소스파일 맨위에 패키지 명을 선언해야 한다.)
+ex. class A { -- }
+패키지 소속 클래스 실행
+$ java 패키지명.class
+ex. $java -cp app/bin/main com.eomcs.lang.ex01 A
+
+
+*****주의*******
+소스파일에 자바 언어가 알아들을 수 없는 경우(ex. UTF-8언어가 들어가 있는 경우)
+-encoding 컴파일 옵션 실행
+& java " -encoding utf-8"(여기 사이에 입력) -d app/bin/main app/src/ ... 소스파일 
+(소스파일에 영어가 아닌 문자가 있고 그 문자가 utf-8 규칙에 따라 저장된 경우 이 옵션을 사용한다.)
+
+
+
