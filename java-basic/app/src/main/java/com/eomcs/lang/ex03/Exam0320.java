@@ -29,6 +29,7 @@ public class Exam0320 {
     //- 0x 또는 0X 로 시작한다.
     System.out.println(0x64);
     System.out.println(0X64);
+    //a가 10부터 시작
     
     //- 숫자 앞에 0이 있어도 된다.
     System.out.println(0x064);

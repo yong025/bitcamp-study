@@ -12,7 +12,7 @@ package com.eomcs.lang.ex03 ;
 //  \" - Double Quote, 0x22
 //  \\ - Backslash, 0x5c
 //
-public class Exam0700 {
+public class Exam0480 {
   public static void main(String[] args) {
     System.out.println("Hello,world!"); 
     System.out.println("Hello,\nworld!"); // 줄바꿈 문자
