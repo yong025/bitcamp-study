@@ -25,8 +25,14 @@ public class Exam0510 {
     int[] arr1 = new int[5]; // OK!
     int arr2[] = new int[5]; // OK! C-style.
 
-    // 배열의 크기는 int 타입의 최대 값이다.
-    int[] arr3 = new int[2147483647];
+    // 배열의 크기는 int 타입의 최대 값에서 2를 뺀 값이다.
+    // 배열의 최대 크기는 Ineger.MAX_VALUE - 2
+    // int[] arr3 = new int[2147483647]; //실행 오류 발생
+    int[] arr3 = new int[2147483645]; //OK
+    int[] arr3 = new int[Integer.MAX_VALUE - 2]; // OK
+
+    //단, 자바 힙 메모리가 부족하다는 실행오류가 발생할 수 있다.
+    //JVM을 실행할 때 힙(heap) 메모리의 초기 크기를 늘려라.
   }
 }
 

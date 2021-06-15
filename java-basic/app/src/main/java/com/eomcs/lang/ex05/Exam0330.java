@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex05;
 
-//# 논리 연산자 : && vs &
+//# ***********논리 연산자 : && vs &
 //
 public class Exam0330 {
   public static void main(String[] args) {

@@ -59,7 +59,8 @@ public class Exam0220 {
     // 소수점 뒤에 붙은 극소수의 값을 무시하면 된다.
     // => JVM이 자동으로 처리하지 않는다.
     // => 다음과 같이 개발자가 직접 처리해야 한다.
-    double EPSILON = 0.00001;
+    double EPSILON = 0.00001; // ***********EPSILON 동일하다고 간주하는 값을 지정
     System.out.println(Math.abs((d1 + d2) - (x + y)) < EPSILON);
+    //*********Math.abs는 음수 양수 가리지 않고, 절대값을 리턴.
   }
 }

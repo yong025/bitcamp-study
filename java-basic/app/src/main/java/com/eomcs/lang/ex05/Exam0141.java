@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex05;
 
-//# 산술 연산자 : 연산의 결과 타입
+//# ***********산술 연산자 : 연산의 결과 타입
 //
 public class Exam0141 {
   public static void main(String[] args) {
@@ -19,6 +19,7 @@ public class Exam0141 {
     // 해결책!
     // - 변수에 들어 있는 값을 다른 타입으로 바꿔라.
     //   "형변환(type conversion=type casting)"하라!
+    //임시 메모리 생성
     r = (float)i / (float)j; // float / float = float
     // i / j의 값은 2.5가 되고
     // r에 저장되는 것은 2.5이다.
