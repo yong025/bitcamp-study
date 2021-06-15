@@ -17,6 +17,15 @@ public class Exam0640 {
     // int result = 2 + 3 * 4; => i = 5
     // int result = 2 + 12;
     // int result = 14;
+
+    //요약
+    //int t1= i; (2)임시메모리
+    //i = i+1; (3)
+    //int t2 = i; (3)임시메모리
+    //i = i+1; (4)
+    //int t3 = i; (4)임시메모리
+    //i = i+1; (5)
+    //int result = t1 + t2 * t3;
     System.out.printf("%d, %d\n", i, result);
 
   }

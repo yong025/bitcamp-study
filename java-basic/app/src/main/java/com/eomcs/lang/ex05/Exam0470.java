@@ -38,7 +38,7 @@ public class Exam0470 {
     System.out.printf("Java       : %b\n", (lang & JAVA) == JAVA);
     System.out.printf("C++        : %b\n", (lang & CPP) == CPP);
     System.out.printf("C          : %b\n", (lang & C) == C);
-
+    // %b는 , 이후의 계산 결과값을 출력하라는 명령
     System.out.println("--------------------------");
     System.out.printf("CSS        : %b\n", (lang & CSS) > 0);
     System.out.printf("HTML       : %b\n", (lang & HTML) > 0);

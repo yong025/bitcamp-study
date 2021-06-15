@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex04;
+package com.eomcs.lang.ex04copy;
 
 //# 배열 - 배열을 선언하는 방법 
 // 배열?
@@ -29,10 +29,16 @@ public class Exam0510 {
     // 배열의 최대 크기는 Ineger.MAX_VALUE - 2
     // int[] arr3 = new int[2147483647]; //실행 오류 발생
     int[] arr3 = new int[2147483645]; //OK
-    int[] arr3 = new int[Integer.MAX_VALUE - 2]; // OK
-
-    //단, 자바 힙 메모리가 부족하다는 실행오류가 발생할 수 있다.
+    // int[] arr4 = new int[Integer.MAX_VALUE - 2];  
+    //실행 오류 발생
+    //Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+    //JVM이 OS로부터 사용허가를 받은 메모리 크기를 벗어났기 때문에 발생한 것이다.
+    //해결책
     //JVM을 실행할 때 힙(heap) 메모리의 초기 크기를 늘려라.
+    //JVM 실행 옵션에 다음을 추가하라 !
+    //-Xms메모리크기
+    //ex. $java -Xmx20000m -cp...
+    //2147483645byte >> 2147MB >> 2.1GB
   }
 }
 

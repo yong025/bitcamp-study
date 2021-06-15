@@ -12,6 +12,7 @@ public class Exam0710 {
 
     i = 2;
     i *= 5;
+    //i = i * 5;
     System.out.println(i);
 
   }
