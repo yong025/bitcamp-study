@@ -6,11 +6,12 @@ public class Exam0630 {
   public static void main(String[] args) {
     int i = 7;
 
-    int j = i++;
-    
+    int j = i++; // j에 본래 i값을 저장 후에 i에 ++실행.
+    //이 자리에 (i = i+1식)이 생성. 밑으로 연산하면 i = 8이됨.
+
     // 위 문장은 컴파일될 때 다음과 같은 형태로 변환된다.
     // int temp = i;
-    // i = i + 1;
+    // i = i + 1;  << i++;를 풀면 이렇게 변함
     // int j = temp;
     //
     // 소스 코드 그대로 설명하면 다음과 같이 설명할 수 있다.

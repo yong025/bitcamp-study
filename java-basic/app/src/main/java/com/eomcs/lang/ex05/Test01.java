@@ -30,7 +30,7 @@ public class Test01 {
      //final로 상수 지정 (변동 x) 
      //
 
-    lang2 |= LANG_C; 
+    lang2 |= LANG_C;  //lang2 = lang2 | LANG_C;
     lang2 |= LANG_JAVA; 
     lang2 |= LANG_PYTHON;
     lang2 |= LANG_HTML;
