@@ -15,7 +15,7 @@ public class Exam0321 {
     while (count < 100) {
       count++;
       if ((count & 0x01) == 0) { // count & 0x01 ==> count % 2  count값이 짝수와 같을 때
-        sum += count;
+        sum += count;//sum = sum + count
       }
     }
     System.out.printf("count=%d, sum=%d\n", count, sum);

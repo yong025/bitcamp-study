@@ -15,7 +15,7 @@ public class Exam0322 {
       count++;
       if (count > 50) // 50을 넘어가면 합을 수행하지 않지만 100까지 계속 반복한다.
         continue;
-      sum += count;
+      sum += count;//sum = sum + count
     }
     System.out.printf("count=%d, sum=%d\n", count, sum);
 
