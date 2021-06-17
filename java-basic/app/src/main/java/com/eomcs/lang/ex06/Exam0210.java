@@ -6,12 +6,28 @@ import java.util.Scanner;
 //
 public class Exam0210 {
   public static void main(String[] args) {
-    Scanner keyScan = new Scanner(System.in);
+
+    // 키보드 입력을 다루는 도구 생성
+    Scanner keyScan = new Scanner(System.in); 
+    //    Scanner = 키보드로 입력한 값을 특정 타입의 값으로 꺼내주는 ***도구*** (오른쪽에선 데이터타입)
+    //    메소드 펑션 기능이라고도 함.
+    //    (System.in) = 키보드 정보
+    //    keyScan = 도구를 가리키는 변수
+
+    //    **도구사용법** 
+    //    keyScan. 기능명();
+    //    ex. 
+    //    keyScan. nextInt(); >> 키보드의 입력값을 읽어서 4byte 정수로 변환한다.
+    //    keyScan. nextLine(); >> 키보드의 입력값을 한 줄 읽어서 문자열로 변환한다.
     System.out.println("[지원부서]");
     System.out.println("1. S/W개발");
     System.out.println("2. 일반관리");
     System.out.println("3. 시설경비");
     System.out.print("지원 분야의 번호를 입력하세요? ");
+
+    //사용자가 콘솔 창에 입력할 수 있도록
+    //커서를 대기시키고 싶다면 nextInt()를 실행하라!
+    // >> nextInt()는 사용자가 숫자를 입력하고 엔터를 칠 때까지 기다린다.
     int no = keyScan.nextInt();
 
     System.out.println("제출하실 서류는 다음과 같습니다.");
@@ -27,7 +43,7 @@ public class Exam0210 {
     } else {
       System.out.println("올바른 번호를 입력하세요!");
     }
-    
-    keyScan.close();
+
+    keyScan.close(); 
   }
 }

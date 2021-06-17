@@ -12,7 +12,7 @@ public class Exam0221 {
     System.out.println("2. 일반관리");
     System.out.println("3. 시설경비");
     System.out.print("지원 분야의 번호를 입력하세요? ");
-    int no = keyScan.nextInt();
+    int no = keyScan.nextInt(); //잘못된 값을 입력하여 멈추는 경우 Exception이라고 한다.
 
     System.out.println("제출하실 서류는 다음과 같습니다.");
     switch (no) {

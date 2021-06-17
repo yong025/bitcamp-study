@@ -9,12 +9,13 @@ public class Exam0231 {
     // => int 정수(byte,short,int,char), 문자열, 특별한 상수 Enum 타입
     // => case 값으로 변수를 사용할 수 없다. 리터럴만 가능하다.
 
-    // case에는 리터럴만 올 수 있다.
-    // 즉 변수를 사용할 수 없다.
+
     int x = 1, y = 300;
     switch (x) {
+      // case에는 리터럴만 올 수 있다.
+      // 즉 변수를 사용할 수 없다.
       case 1 * 300: // OK
-        //case 1 * y: // 컴파일 오류!
+        //      case 1 * y: // 컴파일 오류!
     }
   }
 }

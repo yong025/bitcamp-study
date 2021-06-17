@@ -22,6 +22,7 @@ public class Exam0222 {
         // break 명령을 만날 때까지 아래로 계속 실행한다.
       case 2:
         System.out.println("졸업증명서");
+        // 2를 입력하면 case2부터 밑으로 내려간다.
       case 3:
         System.out.println("이력서");
         break; // 여기까지만 실행한다.

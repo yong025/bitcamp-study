@@ -11,14 +11,14 @@ public class Exam0460 {
     //
     // 배열은 크기가 고정되지만,
     // 컬렉션은 크기가 가변적이다.
-    ArrayList list = new ArrayList();
-    list.add("홍길동");
+    ArrayList list = new ArrayList();//상자의 개념
+    list.add("홍길동");//상자 안의 물건
     list.add(3.14f);
     list.add(true);
     list.add(365);
 
     for (int i = 0; i < list.size(); i++)
-      System.out.println(list.get(i));
+      System.out.println(list.get(i)); //i는 상자번호
   }
 }
 

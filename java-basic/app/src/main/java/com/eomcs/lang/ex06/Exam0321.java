@@ -14,7 +14,7 @@ public class Exam0321 {
     sum = 0;
     while (count < 100) {
       count++;
-      if ((count & 0x01) == 0) { // count & 0x01 ==> count % 2
+      if ((count & 0x01) == 0) { // count & 0x01 ==> count % 2  count값이 짝수와 같을 때
         sum += count;
       }
     }
@@ -27,8 +27,8 @@ public class Exam0321 {
     sum = 0;
     while (count < 100) {
       count++;
-      if (count % 2 == 1)
-        continue; // 다음 문장을 실행하지 않고 즉시 조건 검사로 이동한다.
+      if (count % 2 == 1)// count값이 홀수일 때
+        continue; // 다음 문장을 실행하지 않고 다시 조건 검사로 이동한다.
       sum += count;
     }
     System.out.printf("count=%d, sum=%d\n", count, sum);
