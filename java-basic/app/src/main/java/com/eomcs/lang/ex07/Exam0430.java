@@ -4,18 +4,18 @@ package com.eomcs.lang.ex07;
 //
 public class Exam0430 {
 
+  //Heap 메모리에 어떤 변수를 만들어야 하는지 적어 놓은 설계도
   static class MyObject {
     int a;
     int b;
   }
-  
-  static MyObject getMyObject() {
-    // Exam03_3.java 에 정의된 MyObject 클래스 사용
-    MyObject ref = new MyObject();
-    ref.a = 100;
-    ref.b = 200;
 
-    return ref;
+  static MyObject getMyObject() {
+    MyObject ref = new MyObject();
+    ref.a = 100; //ref에 int a의 주소를 연결
+    ref.b = 200;//ref에 int b의 주소를 연결
+
+    return ref;//주소값을 가지고 main 메서드의 ref로 회귀한다.
   }
 
   public static void main(String[] args) {

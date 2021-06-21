@@ -12,7 +12,7 @@ public class Exam0630 {
 
     java.util.Set keySet = props.keySet();
 
-    for (Object key : keySet) {
+    for (Object key : keySet)/*object는 어떤 데이터든 담을 수 있음*/ {
       String value = System.getProperty((String) key);
       System.out.printf("%s = %s\n", key, value);
     }

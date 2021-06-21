@@ -36,6 +36,8 @@ public class Exam0220 {
     hello("유관순", 16);
 
     System.out.println("main()44444");
+
+    hello("김용환", 29);
   }
 }
 

@@ -5,13 +5,14 @@ package com.eomcs.lang.ex07;
 public class Exam0420 {
 
   static int[] getArray() {
-    int[] arr = new int[] {100, 200, 300};
-    return arr;
+    int[] arr = new int[] {100, 200, 300};// main 메서드 getArray에 호출당하는 내용
+    // Heap(배열 인스턴스)
+    return arr;//arr 배열 주소값을 가지고 다시 main으로 회귀.
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) {//JVM Stack 메서드 호출할 때마다 생성하는 로컬변수
     int[] arr;
-    arr = getArray();
+    arr = getArray();//여기서 Method 정의 호출
     System.out.println(arr[1]); // 200
   }
 }

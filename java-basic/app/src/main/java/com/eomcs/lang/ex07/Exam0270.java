@@ -9,9 +9,11 @@ public class Exam0270 {
   //       예) m1("aaa", "bbb", "aaa@test.com", "bbb@test.com");
   //       어느 값이 names 배열에 들어가고, 어느 값이 emails 배열에 들어가는가?
   //  static void m1(String... names, String... emails) {} // 컴파일 오류!
-  //
+  //static void m1(String[] names, String[] emails) {} //ok !
+
   //    => 중간에 다른 타입이 온다 하더라도 안된다.
-  //  static void m1(String... names, int a, String... emails) {}// 컴파일 오류!
+  //    static void m1(String... names, int a, String... emails) {}// 컴파일 오류!
+  //static void m1(String[] names, String[] emails) {} 
   //
   // 위의 메서드는 값을 구분할 수 있을 것 같은데?
   // => 그냥 다음과 같이 호출하면 되는 것 아닌가?
@@ -25,7 +27,7 @@ public class Exam0270 {
   // 2) 가변 파라미터는 반드시 맨 끝에 와야 한다.
   // => 아규먼트의 시작과 끝을 구분할 수 없다.
   // 예) m2("aaaa");
-  //  static void m2(String... names, String a) {} // 컴파일 오류!
+  //    static void m2(String... names, String a) {} // 컴파일 오류!
   //  static void m2(boolean b, String... names, int a) {} // 컴파일 오류!
   static void m2(int a, String... names) {} // OK!
 

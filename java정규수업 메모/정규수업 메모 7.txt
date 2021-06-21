@@ -1,0 +1,123 @@
+통합개발환경 Eclips IDE 설치 및 실행
+
+이클립스 인스톨러
++ Java 에디터 >> Java Developer
++Web 에디터 >> Java EE
+
+작업폴더 c:\users\사용자\eclipse-workspace
+eclipse preferences 설정
+메뉴>윈도우>프리퍼런스
+1.제너럴>에디터>텍스트에디터
+탭크기 2
+탭코드 대신 공백문자삽입 체크
+쓸데없이 여러개 삽입한 공백제거
+한줄 100자를 표시하는 세로 줄 출력
+에디터에 공백문자(스페이스,탭,줄바꿈)를 흐릿하게 표시
+2.제너럴>워크스페이스
+텍스트 인코딩: utf-8로 변경
+3.자바>코드스타일>포매터
+구글검색: elipse-java-google-style.xml(구글 개발팀에서 사용하는 코드작성관례)
+raw 클릭 + 저장/ 포매터에서 import
+자바>에디터>세이브액션
+파일을 저장할 때 기본적으로 수행할 작업을 설정
+organize imports 체크
+additiniol action 체크
+>>configure 
+correct indentation 체크
+java>>installed jres
+jdk 11 홈디렉토리설정 (그랄vm jdk)
+web>>cssfiles/
+utf-8 encoding로 변경
+html files
+utf-8 encoding로 변경
+jsp files
+utf-8 encoding로 변경
+
+네비게이터 사용법(폴더구조를 가공하지않고 탐색기처럼 보여줌)
+window >> show view >> navitor
+전체 한번에 컴파일
+project  >>clean
+
+{{ Eclipse IDE로 프로젝트 가져오기
+메뉴/file/import
+General/Exiting project..선택
+디렉토리 선택
+git/bitcamp-study/java-basic/app
+단, 프로젝트 폴더에는 이클립스 설정파일이 존재해야한다.
+이클립스 설정파일: .project / .classpath / settings
+만약 이런 설정파일이 없다면, gradle 빌드도구를 사용하여 생성할 수 있다.( $gradle init)
+-Maven 표준프로젝트 폴더를 초기화
+-특정 IDE가 사용하는 설정파일도 생성할 수 있다. }}
+
+{{gradle 빌드 도구를 이용한 Ecpipse IDE 설정파일 만들기
+1.빌드 스크립트 파일 편집
+-build/gradle
+-build. gradle이 작업할 때 필요한 정보를 설정
+-편집할 내용(java-basic에 있는 폴더 build.gradle파일)
+--java gradle plugin 장착(plugins id 'java' 입력 및 eomcs-java gradle파일에서 java관련 내용 복붙)
+--eclipse  "      "	"
+--application 관련 설정 삭제 (id 및 아래 열 관련 내용 삭제)
+자바 컴파일 옵션 추가
+-자바 소스파일의 인코딩을 설정(eomcs-java의 gradle파일 문장복사)
+이클립스 옵션추가
+-build.gradle파일 내 eclipse 문단 내 프로젝트명 설정(name) : "java-basic"
+저장
+
+gradle 빌드 도구를 이용하여 eclipse 설정파일 생성
+~/git/bitcamp-study/java-basic $ gradle eclipse
+~/git/eomcs-java $ gradle eclipse
+
+그 후에 eclipse IDE에서 프로젝트 폴더를 import한다.(src/bin폴더가 들어있는 폴더)
+~/git/bitcamp-sutdy/java-basic/app (.project/.classpath 파일이생성되어 있음)
+~git/eomcs-java }}
+
+eclipse 프로젝트와 git 저장소
+
+1.git 저장소 = 프로젝트 폴더
+ex. ~/git/eomcs-java  (.git파일이 있음)(gradle프로젝트의 경우 build.gradle파일이 있음)
+(내부에 build.gradle 파일이 아닌 pom.xml(Maven) build.xml(ant) 파일이 있는 경우가 있음.)
+
+2.git저장소/프로젝트 폴더
+ex. ~/git/eomcs-java-web(.git)/eomcs-web-project(여기에 build.gradle가 있음)
+
+3.git저장소/프로젝트 폴더/서브 프로젝트 폴더
+ex. ~/git/bitcamp-study(.git)/java-basic(setting.gradle)(부모프로젝트폴더)/app(build.gradle)(서브 프로젝트폴더)
+
+**빌드도구**
+프로젝트의 소스를 컴파일하고 테스트, 문서생성, 배포파일 생성 등의 애플리케이션을 만드는 일을 하는 도구
+Ant >> Maven >> Gradle
+Ant
+build.xml(빌드 스크립트파일) - 프로젝트를 어떻게 컴파일하고 테스트하고 배포파일을 생성할지 알려주는 정보파일
+XML태그로 설정한다.
+Maven(pom.xml) - 프로젝트가 사용하는 외부 라이브러리*를 자동으로 다운받고 프로젝트에 추가해주는 기능
+외부 라이브러리:다른 개발자가 만든 프로그램 코드가 들어있는 컴파일된 클래스파일
+Gradle(build.gradle) - 빌드 정보를 설정할 때 XML태그 대신에 groovy 또는 kotlin이라는 정식 프로그래밍언어를 사용
+프로그래밍 언어니까 더 정교하게 빌드과정을 통제할 수 있다.
+
+gradle eclipse 플러그인
+
+plugins{
+    id '플러그인 명'
+}
+
+
+CMD에서 작업
+$ gradle tasks --all <<사용가능한 명령문 확인가능
+$ gradle eclipseProject >> .project파일 생성
+$ gradle cleanEclipseProject >> .project파일 제거
+$ gradle eclipse >> 다른 플러그인과 협동하여 eclipse관련 설정파일을 모두 만든다
+  ex. 'java'플러그인과 협동한다면 .project에 더하여 .classpath와 .settings폴더도 생성한다.
+$ gradle cleanEclipse >> 다른 플러그인과 협동하여 생성한 모든 eclipse관련 파일을 제거한다.
+  ex. 'java'플러그인과 협동해서 만든 파일을 모두 제거
+
+흐름 제어문
+if(조건) Sys...print... ;
+
+if (조건) {
+Sys...print...
+-	;
+}
+
+if (조건){Sys...print...;
+}else {문장 ;
+

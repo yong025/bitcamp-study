@@ -1,0 +1,81 @@
+프로젝트 생성에서 eclipse IDE로 임포트
+
+1. 빈폴더 생성 $mkdir myproject2
+2.자바 애플리케이션 프로젝트 폴더로 만들기 (~\myproject2 $ gradle init)
+(myproject2(root project)/app(sub project)/src/main/java/com/......
+3.Eclipse IDE 용 프로젝트로 전환
+-java, eclipse gradle플러그인 설정 및 편집(build.gradle 수정)
+-각 플러그인에 대해 동작을 제어 및 편집
+ex. ( java 파일 컴파일 시 인코딩을 utf -8로 하라)
+tasks.withType(JavaCompile) {
+   options.encoding = 'UTF-8';
+}
+-이클립스 설정파일 생성 ( $gradle eclipse)
+-이클립스에서 import
+
+**플러그인 검색**
+gradle.org >> docs >> core plugins >> 언어/툴 선택 >> configuration
+
+Keyboard 입력
+
+Scanner keyScan = new Scanner(System.in);
+keyScan = 도구를 가리키는 변수
+Scanner = 키보드로 입력한 값을 특정 타입의 값으로 꺼내주는 도구
+(System.in) = 키보드 정보
+
+도구와 기능 class 와 method 
+도구(=클래스=데이터타입)
+Scanner
+기능 = 메서드(함수)
+-nextInt()
+-nextBoolean()
+-nextLine()
+Scanner(클래스) keyScan(변수 레퍼런스)
+
+**도구사용법** 
+keyScan. 기능명();
+ex. 
+keyScan. nextInt(); >> 키보드의 입력값을 읽어서 4byte 정수로 변환한다.
+keyScan. nextLine(); >> 키보드의 입력값을 한 줄 읽어서 문자열로 변환한다.
+
+switch 문
+switch (변수명(4byte 정수값 및 문자열/enum타입)) {
+   case (변수의 값 ): -
+   break;
+   case (값) : -
+   break;
+   default : -
+}
+
+반복문
+while (조건을 보고 실행)
+
+1.while (조건) {
+-
+-;
+}
+2.do while (무조건 한번이상 실행)
+do {
+-
+-
+}while (조건) ;
+
+3.for(변수 초기화; 조건; 증감순) -;
+
+4.for(변수 초기화;조건;증감순) {
+-
+-
+}
+
+5.for (변수선언 : (컬렉션/배열)) - ;
+
+6.for(변수선언 : (컬렉션/배열) {
+-
+-
+}
+
+for 반복문 실행
+for(int i =1; i<= 5; i++){
+-
+-
+}

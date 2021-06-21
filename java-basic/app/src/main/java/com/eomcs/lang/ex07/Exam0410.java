@@ -39,6 +39,7 @@ public class Exam0410 {
 // 1) Method Area
 // - 클래스 명령 코드를 둔다.
 // - static 변수를 둔다.
+// (**메소드 에리어는 소스가 아니라 바이트코드(클래스 파일의 내용이 올라간다.**)
 //
 // 2) Heap
 // - new 명령으로 만든 메모리(인스턴스=객체)를 둔다.
@@ -56,3 +57,5 @@ public class Exam0410 {
 // - 스택 방식을 "Last In First Out(LIFO;후입선출)"라 부른다. 
 //
 // JVM이 종료하면 JVM이 사용했던 모든 메모리를 OS에 반납한다.
+
+// RAM에 저장하는 code segment / data segment

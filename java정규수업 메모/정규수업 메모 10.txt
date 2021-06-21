@@ -1,0 +1,148 @@
+Method Area와 JVM Stack, Heap
+
+Method Area
+.class파일 로딩( ex07 / Exam0410 )
+
+.class를 Method Area에 올릴때 **통째로 올리는 것이 아니다.**
+사용할 일부만 적정량 배치한다.
+
+JVM Stack (Exam0410참조)
+
+main (a,b(로컬변수)) 
+swap (a,b(로컬변수)) = (파라미터)
+메서드를 호출하면 메서드가 사용한 로컬변수는 모두 소멸한다.
+메서드를 생성할 때마다 로컬변수를 생성해야 한다.
+
+Heap (Exam0420 참조)
+
+인스턴스 생성과 리턴(Exam 0430참조)
+
+Method Area
+
+Exam 0430 $Myobject.class
+int a;
+int b;
+
+Exam0430.class
+Myobjext ref = new Myobject();
+ref. a =100;
+ref. b =200;
+return ref;
+}
+main ( ) }
+Myobeject ref;
+ref = getMyobject();
+-
+}
+
+JVM Stack(스레드 별로 존재)
+
+main () (call)
+args = 
+ref =
+getMyobject
+ref =
+
+Heap
+
+new Myobject(int a, int b(Myobject의 인스턴스))
+**new를 이용해 만든 변수는 소멸되지 않고 heap에 남아있다.**
+
+
+클래스 블록과 .class파일
+
+class Exam {
+  calss A { - }( class A/B/C는 Nested class(중첩 클래스)파일)
+  class B { - }
+
+    m( ) {
+         class C { }
+  }
+}
+
+method signature
+-메서드명, 파라미터 타입과 개수, 순서, 리턴타입을 가리킨다.
+
+int        plus(int a, int b) <<메서드 시그니처(=function prototype)
+{ << 메서드 바디
+-
+-
+}
+
+program argument
+
+$java -cp app/bin/main  - Exam0520 aa  bbb cc<<프로그램 아규먼트
+
+JVM argument
+
+$java -cp app/bin/main -Daa=100 -Dwork=true Exam0610
+
+System.getProperty("aa")  >> 100리턴(문자열로 리턴해주는 기능)
+System.getProperty("work")  >> true 리턴
+
+Method와 클래스 개념잡기
+
+java.lang.System.getProperty("aaa")
+
+java.lang = 패키지명
+.System = 클래스(도구)
+.getProperty = 메서드(기능)
+("aaa) = argument(인자)
+
+System.getProperty( ) - JVM 프로퍼티(속성)
+
+key="name" "kor" "eng"...
+value="hong" "100" "90"...
+
+클래스와 인스턴스
+
+java.util.Date today(레퍼런스) = new java.util.Date( );(클래스=설계도)
+java.util.Date();(Date 클래스의 인스턴스(객체))
+= Date 설계도에 따라 현재 일시(연.월.일)정보를 담은 변수를 생성한다.(인스턴스 주소를 리턴)
+today(레퍼런스)= 인스턴스의 주소를 저장하는 변수 = 객체를 가리키는 변수
+요약
+"Date 클래스의 인스턴스를 생성하고 today 레퍼런스로 그 객체(인스턴스)를 가리킨다."
+
+java.util.Scanner사용
+
+new Scanner(키보드)
+new Scanner(파일)
+new Scanner(메모리)
+new Scanner(랜카드)
+>>> nextInt() / nextLine() / nextFloat() ...
+
+nextInt()와 token
+Scanner.nextInt( ) <<한개의 토큰(공백으로 된 문자열)이 입력될 때까지 기다린다.
+
+nextInt( ) / nextFloat( ) 등과 키보드 버퍼
+-사용자가 키보드를 통해 값을 입력하면 키보드의 내부 메모리(버퍼)에 보관된다.
+-nextInt( ) 는 버퍼에 보관된 입력값을 꺼낸다.
+
+nextInt( ) >> nextLine( )오류
+ex. 키보드 버퍼 = "100"
+nextInt( )  <<버퍼에서 한개의 토큰(입력값) "100"을 꺼낸다.(공백을 만날 때까지 읽는다.)
+nextLine( ) <<버퍼에서 줄 바꿈코드까지 읽는다(문자열 리턴 "" 빈 문자열)
+**nextLine은 줄바꿈코드까지 읽어버려 한줄 입력이 실행됬다고 판단한다.**
+**해결법: nextInt와 nextLine 사이에 keyboard.nextLine(); 빈 문자열 한줄을 작성
+(숫자뒤의 남아있는 줄바꿈코드를 제거하는 효과)
+다음 한줄을 기다리는 효과
+
+nextInt( ) >> next( ) >> nextBoolean( )
+
+입력: 100 aaa true(ex99 Exam0250)
+nextInt( ) "100"리턴
+next( ) "aaa"리턴(앞의 공백은 자동제거된다.)
+nextBoolean( ) "true"리턴(앞의 공백은 자동제거된다.)
+
+
+
+
+
+
+
+
+ 
+
+
+
+
