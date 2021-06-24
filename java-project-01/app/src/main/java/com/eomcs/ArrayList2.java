@@ -1,6 +1,6 @@
 package com.eomcs;
 
-public class ArrayList {
+public class ArrayList2 {
 
   static final int MAX_LENGTH = 100; //상수는 보통 대문자와 띄어쓰기는 _로 사용
   static Object[] list = new Object[MAX_LENGTH];//100개의 레퍼런스를 담을 공간

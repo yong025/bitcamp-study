@@ -1,6 +1,5 @@
 package com.eomcs;
 
-import java.util.Date;
 import java.util.Scanner;
 
 //01. main() : 프로그램의 entry point
@@ -21,42 +20,45 @@ import java.util.Scanner;
 //16. 클래스를 이용하여 새 데이터 타입 정의하기
 public class App02 {
 
-  static class Board{
-
-    String title;
-    String content;
-    String password;
-    int viewCount;
-    Date dateCount;
-  }
-
   static Scanner scn = new Scanner(System.in);
 
   public static void main(String[] args) {
 
     BoardHandler02.scn = scn;
+    MemberHandler02.scn = scn;
+    ComputeHandler02.scn = scn;
 
-    System.out.println("[게시판 관리]");
+    BoardHandler02 boardHandler = new BoardHandler02();
+    MemberHandler02 memberHandler = new MemberHandler02();
+    ComputeHandler02 computeHandler = new ComputeHandler02();
 
-    loop: while(true) {
-      System.out.print("명령> ");
-      String command = scn.nextLine();
+    menuLoop: while(true) {
+      System.out.println("[메뉴]");
+      System.out.println("  1: 게시글 관리");
+      System.out.println("  2: 회원 관리");
+      System.out.println("  3: 계산기");
+      System.out.print("메뉴를 선택하시오. (종료:quit) [1..2]");
+      String menuNO = scn.nextLine();
 
-      switch(command) {
-        case "list": BoardHandler02.list(); break;
-        case "write": BoardHandler02.write(); break;
-        case "update": BoardHandler02.update(); break;
-        case "view": BoardHandler02.view(); break;
-        case "delete": BoardHandler02.delete(); break;
+      switch(menuNO) {
+        case "1":
+          boardHandler.execute();
+          break;
+        case "2":
+          memberHandler.execute();
+          break;
+        case "3":
+          computeHandler.execute();
+          break;
         case "quit":
-          break loop;
+          break menuLoop;
         default:
-          System.out.println("지원하지 않는 명령입니다.");
+          System.out.println("메뉴 번호가 옳지 않습니다.");
       }
-    }
+      System.out.println();
+    }   
 
     scn.close();
-
     System.out.println("안녕히 가십시오!");
   }
 }

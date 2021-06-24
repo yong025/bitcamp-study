@@ -2,13 +2,40 @@ package com.eomcs;
 
 import java.util.Date;
 import java.util.Scanner;
-import com.eomcs.App02.Board;
 
-public class BoardHandler02{
+public class BoardHandler02 implements Handler02{
 
+  static class Board{
+
+    String title;
+    String content;
+    String password;
+    int viewCount;
+    Date dateCount;
+  }
 
   static Scanner scn;
 
+  public void execute() {
+    loop: while(true) {
+      System.out.print("게시글 관리> ");
+      String command = scn.nextLine();
+
+      switch(command) {
+        case "list": BoardHandler02.list(); break;
+        case "write": BoardHandler02.write(); break;
+        case "update": BoardHandler02.update(); break;
+        case "view": BoardHandler02.view(); break;
+        case "delete": BoardHandler02.delete(); break;
+        case "back":
+          System.out.println("메뉴로 돌아갑니다.");
+          break loop;
+        default:
+          System.out.println("지원하지 않는 명령입니다.");
+      }
+      System.out.println();
+    }
+  }
 
   static void list() {
     System.out.println("[게시글 목록]");
@@ -19,13 +46,13 @@ public class BoardHandler02{
     for(Object item : arr) {
       Board board = (Board) item;
       System.out.printf("번호: %d,제목: %s, 작성일시: %s, 조회수: %d\n",
-          i,
+          i++,
           board.title,
           String.format("%1$tY-%1$tm-%1$td", board.dateCount),
           board.viewCount);
-      i++;
     }
   }
+
   static void write() {
     System.out.println("[게시글 작성]");
 

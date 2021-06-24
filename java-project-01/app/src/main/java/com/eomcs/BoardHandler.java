@@ -2,11 +2,39 @@ package com.eomcs;
 
 import java.util.Date;
 import java.util.Scanner;
-import com.eomcs.App.Board;
 
-public class BoardHandler {
+public class BoardHandler implements Handler {//임플리먼트와 규칙이름 붙어야 함.
+
+  // 게시글에 담을 변수 지정
+  static class Board {
+    String title; //아직 실제 변수 존재x 변수를 만들기위한 설계도
+    String content;
+    String password;
+    int viewCount;
+    Date createdDate;
+  }
 
   static Scanner keyScan;
+
+  public void execute() {
+    loop: while(true) {
+      System.out.print("게시글 관리> ");
+      String command = keyScan.nextLine();
+
+      switch (command) {
+        case "list": list(); break;
+        case "add" : add();break;
+        case "update": update();break;
+        case "delete" : delete(); break;
+        case "view" : view(); break;
+        case "back" :
+          break loop;
+        default:
+          System.out.println("지원하지 않는 명령입니다.");
+      }
+      System.out.println();//줄 띄움
+    }
+  } 
 
   static void list() {
     System.out.println("[게시물 목록]");
@@ -24,6 +52,7 @@ public class BoardHandler {
       //처음 bards[0]의 주소에 있는 값을 출력 후 차례대로 [1][2]에 있는 값 출력
     }
   }
+
   static void add() {
     System.out.println("[게시글 등록]");
 
