@@ -39,10 +39,15 @@ import java.util.Scanner;
 //    - 기존의 ArrayList 클래스를 복사하여 ArrayList2로 만들어 사용한다.
 //(ArrayList 복사해ArrayList2생성)
 //MemberHandler에서 ctrl+f 후에 ArrayList를 ArrayList2로 변경)
+//26. 인스턴스 변수로 배열을 관리하기
+//    - ArrayList2.java는 삭제한다.
+//    - ArrayList2.java의 변수를 인스턴스 변수로 전환한다. 
+//    - 메서드에서 작업할 때 사용하는 변수의 주소(인스턴스 주소)를 파라미터로 받는다.
+//    - BoardHandler.java와 MemberHandler.java 변경
+//       - 각 핸들러가 사용할 ArrayList의 인스턴스를 따로 생성한다.
+//       - ArrayList의 메서드에서 인스턴스 변수를 사용할 수 있도록 인스턴스 주소를 받는 파라미터를
+
 public class App {
-
-
-
   //static 변수는 Method area에 만들어진다.
 
   static Scanner keyScan = new Scanner(System.in);
@@ -50,23 +55,23 @@ public class App {
   public static void main(String[] args) {
 
     //APP 클래스에서 만든 Scanner 인스턴스를 BoardHandler와 MemberHandler과 같이 쓴다.
-    BoardHandler.keyScan = keyScan;
-    MemberHandler.keyScan = keyScan;
-    ComputeHandler.keyScan = keyScan;
 
     //규칙에 따라 만든 클래스에 대해
     //규칙에서 정의한 메서드를 호출하려면
     //먼저 그 클래스의 인스턴스를 생성한 후
     //그 인스턴스를 이용하여 메서드를 호출해야 한다.
-    BoardHandler boardHandler = new BoardHandler();
-    MemberHandler memberHandler = new MemberHandler();
-    ComputeHandler computeHandler = new ComputeHandler();
+    BoardHandler boardHandler = new BoardHandler("게시판1", keyScan);
+    BoardHandler boardHandler2 = new BoardHandler("게시판2", keyScan);
+    MemberHandler memberHandler = new MemberHandler(keyScan);
+    ComputeHandler computeHandler = new ComputeHandler(keyScan);
+
 
     menuLoop: while (true) {
       System.out.println("[메뉴]");
       System.out.println("  1: 게시글 관리");
-      System.out.println("  2: 회원 관리");
-      System.out.println("  3: 계산기");
+      System.out.println("  2: 게시글 관리2");
+      System.out.println("  3: 회원 관리");
+      System.out.println("  4: 계산기");
       System.out.print("메뉴를 선택하시오. (종료: quit)[1..3]");
       String menuNo = keyScan.nextLine();
 
@@ -75,9 +80,11 @@ public class App {
           boardHandler.execute();//앞에 클래스변수 만든 후 메서드execute 호출
           break;
         case "2" :
-          memberHandler.execute();
+          boardHandler2.execute();
           break;
         case "3" :
+          memberHandler.execute();         
+        case "4" :
           computeHandler.execute();
           break;
         case "quit" :

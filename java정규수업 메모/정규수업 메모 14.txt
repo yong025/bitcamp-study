@@ -1,0 +1,39 @@
+인스턴스 변수
+[method area]
+class A {
+int v1;
+boolean v2;
+}
+[JVM stack]
+
+
+중첩 클래스(nested class)
+
+class A{ < 패키지 멤버 클래스
+static class B{...} << 스태틱 중첩 클래스
+class C{..} << 논스태틱(non-static=inner) 중첩 클래스
+
+void m(){
+   class D{...}<< 로컬 클래스
+   }
+List obj = new List(){...} << 익명 클래스
+}
+**class B/C/D/List = 모두 중첩 클래스(nested class) = 특정 영역에서만 사용할 수 있는 클래스
+
+저장공간
+static으로 생성된 모든 변수는 method area에 보관
+메서드를 호출할 때 나오는 모든 로컬변수는 모두 JVM stack에 보관
+new를 사용해서 만드는 모든 변수는 Heap에 보관
+
+변수를 구분하기위해 클래스를 복제할 때의 문제점
+ex.
+BoardHandler - ArrayList
+MemberHandler - ArrayList2
+ProjectHandler - ArrayList3
+문제점
+1. ArrayList의 메서드가 중복된다.(똑같은 코드의 메서드가 중복된다.)
+2.코드에 버그가 있을 때, 복제한 모든 클래스를 변경해야 한다.
+3.코드를 추가할 때, 복제한 모든 클래스에 추가해야 한다.
+***src-26의 Test.java와 Test2.java 참고
+
+
