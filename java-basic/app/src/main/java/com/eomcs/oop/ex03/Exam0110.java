@@ -4,7 +4,7 @@ package com.eomcs.oop.ex03;
 
 public class Exam0110 {
   public static void main(String[] args) {
-    class A {
+    class A {//exam 110 main을 실행할 때만 class A가 쓰인다. 
       // 인스턴스 변수
       // => new 명령을 통해 생성된다.
       // => new 명령을 실행하기 전까지는 인스턴스 변수는 존재하지 않는다.
@@ -28,7 +28,7 @@ public class Exam0110 {
     // 인스턴스 변수는 레퍼런스를 통해 사용할 수 있다.
     obj1.v1 = 100;
     obj2.v1 = 200;
-    obj3.v1 = 300;
+    obj3.v1 = 300;//obj3라는 레퍼런스에 저장된 주소에 있는 v1이란 곳에 찾아가 300값을 넣어라.
 
     System.out.printf("%d, %d, %d\n", obj1.v1, obj2.v1, obj3.v1);
   }

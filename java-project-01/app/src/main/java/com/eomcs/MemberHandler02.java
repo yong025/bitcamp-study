@@ -64,14 +64,14 @@ public class MemberHandler02 implements Handler02 {
 
     member.registeredDate = new Date();
 
-    ArrayList.append(member);
+    ArrayList022.append(member);
 
     System.out.println("회원가입이 완료되었습니다.");
   }
   static void list() {
     System.out.println("[회원 목록]");
 
-    Object[] arr = ArrayList.toArray();
+    Object[] arr = ArrayList022.toArray();
 
     for(int i = 0; i <arr.length; i++) {
       Member member = (Member) arr[i];
@@ -136,7 +136,7 @@ public class MemberHandler02 implements Handler02 {
       return;
     }
 
-    Member member = (Member) ArrayList.retrieve(index);
+    Member member = (Member) ArrayList022.retrieve(index);
 
     System.out.printf("이름: %s\n", member.name);
     System.out.printf("email: %s\n", member.email);
@@ -161,7 +161,7 @@ public class MemberHandler02 implements Handler02 {
       return;
     }
 
-    ArrayList.remove(index);
+    ArrayList022.remove(index);
 
     System.out.println("회원을 탈퇴하였습니다.");
   }

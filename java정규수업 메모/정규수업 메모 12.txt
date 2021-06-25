@@ -1,0 +1,92 @@
+자바 primitive data type과 사용자 정의(레퍼런스) 데이터타입
+
+primitive data type - 자바에서 기본으로 제공
+사용자정의(레퍼런스) 데이터타입 - 개발자가 만든 데이터 타입
+
+primitive data type-단일유형의 변수한개
+배열-단일 유형의 변수 여러개
+클래스-복합 유형의 변수 여러개
+
+클래스 - 메모리 설계도 / 메서드 묶음
+
+클래스 설계도 명{
+-변수명
+-
+-
+}
+ex.
+  static class Board{
+
+    String title;
+    String content;
+    String password;
+    int viewCount;
+    Date dateCount;
+  }
+
+new Board( ) => heap영역에 변수 생성(Board의 인스턴스 Board의 설계도에 따라만든 변수들)
+ex.
+Board b = new Board();
+b= 2700번지 주소(레퍼런스 -인스턴스의 주소를 담는 변수)
+b. abc =100;
+b=레퍼런스
+abc = 인스턴스
+
+Board b = new Board();
+b = 3000번지 주소
+b= new Board(); 새로 변수 초기화
+b = 4000번지 주소로 변경
+하지만 heap의 3000번지 주소는 남아있음
+인스턴스의 주소를 갖고 있는 레퍼런스가 없는경우(ex.3000번지) =>해당 인스턴스 사용불가능(가비지)
+
+가비지와 가비지 컬렉터
+가비지=주소를 알고 있는 레퍼런스가 없는 경우>>사용할 수 없다.>>잉여메모리
+>>가비지 컬렉터로 초기화
+실행 시기: 메모리 부족 / cpu가 한가할 때
+(메모리가 넉넉하고, 실행시간이 짧다면 동작하지 않을 수 있다.)
+
+클래스와 배열
+
+Board b1, b2, b3 => Board 인스턴스 주소를 담을 레퍼런스를 3개 선언
+/ b1 // b2 // b3 / << Board 인스턴스 주소 **Board 데이터가 아니다**
+new Board[3]; <= b1,b2,b3의 주소값을 저장하는 배열
+
+클래스의 레퍼런스 배열
+
+Board[ ]  boards = new Board[3]; < 0,1,2자리에 인스턴스 주소를 저장하는 배열
+boards[0] = new Board();  < 0번자리에 주소를 저장할 변수 생성
+boards[1] = new Board();
+boards[2] = new Board();
+사용
+boards[0].title = "aaa"; < 0번레퍼런스가 가리키는 객체의  title 주소로 찾아가서 aaa라는 변수를 저장
+boards[1].title = "bbb" < 1번레퍼런스가 가리키는 객체의 title 주소로 찾아가서 bbb라는 변수를 저장
+
+Board Handler
+
+APP >>사용 >> BoardHandler(게시글관리)  >> 코드 분리 및 사용 >> ArrayList(데이터 목록관리)
+	         MemberHandler(회원관리)			    (재사용 하기 쉽도록)
+
+인스턴스 변수와 클래스(static)변수
+
+인스턴스 변수
+-new 명령을 실행할 때마다 생성된다 
+-heap 영역에 생성된다.
+스태틱 변수
+-".class"를 로딩할 때 생성된다.
+-Method Area 영역에 생성된다.
+-클래스 당 오직 한 번만 생성된다.
+
+인스턴스 사용과 클래스 변수 사용
+ex.
+class A{
+int x;
+int y;
+static int z;
+}
+1.인스턴스 변수사용
+A v1 = new A(); 
+-인스턴스 변수는 주소를 알아야만 접근 가능
+2.클래스 변수사용
+A.z = 100;
+클래스 이름으로 바로 변수에 접근 할 수 있다.
+그래서 클래스변수라 부른다.
