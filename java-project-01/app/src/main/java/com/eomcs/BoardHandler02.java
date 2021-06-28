@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class BoardHandler02 implements Handler02{
 
   static class Board{
-
     String title;
     String content;
     String password;
@@ -14,19 +13,27 @@ public class BoardHandler02 implements Handler02{
     Date dateCount;
   }
 
-  static Scanner scn;
+  String boardName;
+  Scanner scn;
+  ArrayList02 boardList = new ArrayList02();
+
+  //생성자
+  BoardHandler02(String boardName, Scanner scn){
+    this.boardName = boardName;
+    this.scn = scn;
+  }
 
   public void execute() {
     loop: while(true) {
-      System.out.print("게시글 관리> ");
+      System.out.print(this.boardName + "게시글 관리> ");
       String command = scn.nextLine();
 
       switch(command) {
-        case "list": BoardHandler02.list(); break;
-        case "write": BoardHandler02.write(); break;
-        case "update": BoardHandler02.update(); break;
-        case "view": BoardHandler02.view(); break;
-        case "delete": BoardHandler02.delete(); break;
+        case "list": this.list(); break;
+        case "write": this.write(); break;
+        case "update": this.update(); break;
+        case "view": this.view(); break;
+        case "delete": this.delete(); break;
         case "back":
           System.out.println("메뉴로 돌아갑니다.");
           break loop;
@@ -37,11 +44,11 @@ public class BoardHandler02 implements Handler02{
     }
   }
 
-  static void list() {
+  void list() {
     System.out.println("[게시글 목록]");
 
 
-    Object[] arr = ArrayList.toArray();
+    Object[] arr = this.boardList.toArray();
     int i = 0;
     for(Object item : arr) {
       Board board = (Board) item;
@@ -53,10 +60,10 @@ public class BoardHandler02 implements Handler02{
     }
   }
 
-  static void write() {
+  void write() {
     System.out.println("[게시글 작성]");
 
-    if(ArrayList02.start == ArrayList02.MAX_INT) {
+    if(this.boardList.start == ArrayList02.MAX_INT) {
       System.out.println("게시글 작성한도 초과");
       return;
     }
@@ -64,42 +71,42 @@ public class BoardHandler02 implements Handler02{
     Board board = new Board();
 
     System.out.print("제목: ");
-    board.title = scn.nextLine();
+    board.title = this.scn.nextLine();
 
     System.out.print("내용: ");
-    board.content = scn.nextLine();
+    board.content = this.scn.nextLine();
 
     System.out.print("비밀번호: ");
-    board.password = scn.nextLine();
+    board.password = this.scn.nextLine();
 
     board.dateCount = new Date();
 
-    ArrayList.append(board);
+    this.boardList.append(board);
 
     System.out.println("게시글 작성이 완료되었습니다.");
   }
 
-  static void update() {
+  void update() {
     System.out.println("[게시글 변경]");
 
     System.out.print("번호? ");
-    int index =Integer.parseInt(scn.nextLine());
+    int index =Integer.parseInt(this.scn.nextLine());
 
-    if(index < 0 || index >= ArrayList02.start) {
+    if(index < 0 || index >= this.boardList.start) {
       System.out.println("무효한 게시글입니다.");
       return;
     }
 
-    Board board = (Board) ArrayList02.retrieve(index);
+    Board board = (Board) this.boardList.retrieve( index);
 
     System.out.printf("(%s)에서 수정할 제목", board.title);
-    String titlechange = scn.nextLine();
+    String titlechange = this.scn.nextLine();
 
     System.out.printf("(%s)에서 수정할 내용", board.content);
-    String contentchange = scn.nextLine();
+    String contentchange = this.scn.nextLine();
 
     System.out.print("정말 변경하시겠습니까? y/N");
-    if(!scn.nextLine().equals("y")) {
+    if(!this.scn.nextLine().equals("y")) {
       System.out.println("변경을 취소하였습니다.");
       return;
     }
@@ -109,39 +116,39 @@ public class BoardHandler02 implements Handler02{
 
     System.out.println("변경이 완료되었습니다.");
   }
-  static void delete() {
+  void delete() {
     System.out.println("[게시글 삭제]");
 
     System.out.print("번호? ");
-    int index =Integer.parseInt(scn.nextLine());
+    int index =Integer.parseInt(this.scn.nextLine());
 
-    if(index < 0 || index >= ArrayList02.start) {
+    if(index < 0 || index >= this.boardList.start) {
       System.out.println("무효한 게시글입니다.");
       return;
     }
 
     System.out.print("정말 삭제하시겠습니까? y/N");
-    if(!scn.nextLine().equals("y")) {
+    if(!this.scn.nextLine().equals("y")) {
       System.out.println("삭제를 취소하였습니다.");
       return;
     }
 
-    ArrayList.remove(index);
+    this.boardList.remove( index);
 
     System.out.println("게시글을 삭제하였습니다.");
   }
-  static void view() {
+  void view() {
     System.out.println("[게시글 조회]");
 
     System.out.print("번호? ");
-    int index =Integer.parseInt(scn.nextLine());
+    int index =Integer.parseInt(this.scn.nextLine());
 
-    if(index < 0 || index >= ArrayList02.start) {
+    if(index < 0 || index >= this.boardList.start) {
       System.out.println("무효한 게시글입니다.");
       return;
     }
 
-    Board board = (Board) ArrayList.retrieve(index);
+    Board board = (Board) this.boardList.retrieve(index);
 
     board.viewCount++;
 

@@ -14,19 +14,26 @@ public class MemberHandler02 implements Handler02 {
     Date registeredDate;
   }
 
-  static Scanner scn;
+  String memberGroupName;
+  Scanner scn;
+  ArrayList02 memberList = new ArrayList02();
+
+  MemberHandler02(String memberGroupName, Scanner scn){
+    this.memberGroupName = memberGroupName;
+    this.scn = scn;
+  }
 
   public void execute() {
     loop: while(true) {
-      System.out.print("회원 관리> ");
+      System.out.print(this.memberGroupName + "회원 관리> ");
       String command = scn.nextLine();
 
       switch(command) {
-        case "list": MemberHandler02.list(); break;
-        case "join": MemberHandler02.join(); break;
-        case "update": MemberHandler02.update(); break;
-        case "view":  MemberHandler02.view(); break;
-        case "delete": MemberHandler02.delete(); break;
+        case "list": this.list(); break;
+        case "join": this.join(); break;
+        case "update": this.update(); break;
+        case "view":  this.view(); break;
+        case "delete": this.delete(); break;
         case "back":
           System.out.println("메뉴로 돌아갑니다.");
           break loop;
@@ -36,10 +43,10 @@ public class MemberHandler02 implements Handler02 {
       System.out.println();
     }
   }
-  static void join() {
-    System.out.println("[회원 등록]");
+  void join() {
+    System.out.println(this.memberGroupName + "[회원 등록]");
 
-    if(ArrayList022.start == ArrayList022.MAX_INT) {
+    if(this.memberList.start == ArrayList02.MAX_INT) {
       System.out.println("회원 가입 한도 초과");
       return;
     }
@@ -47,16 +54,16 @@ public class MemberHandler02 implements Handler02 {
     Member member = new Member();
 
     System.out.print("이름: ");
-    member.name = scn.nextLine();
+    member.name = this.scn.nextLine();
 
     System.out.print("email: ");
-    member.email = scn.nextLine();
+    member.email = this.scn.nextLine();
 
     System.out.print("비밀번호: ");
-    member.password = scn.nextLine();
+    member.password = this.scn.nextLine();
 
     System.out.println("재직여부: (y/N)");
-    if(scn.nextLine().equals("y")) {
+    if(this.scn.nextLine().equals("y")) {
       member.working = true;
     }else {
       member.working = false;
@@ -64,14 +71,14 @@ public class MemberHandler02 implements Handler02 {
 
     member.registeredDate = new Date();
 
-    ArrayList022.append(member);
+    this.memberList.append(member);
 
     System.out.println("회원가입이 완료되었습니다.");
   }
-  static void list() {
+  void list() {
     System.out.println("[회원 목록]");
 
-    Object[] arr = ArrayList022.toArray();
+    Object[] arr = this.memberList.toArray();
 
     for(int i = 0; i <arr.length; i++) {
       Member member = (Member) arr[i];
@@ -82,18 +89,18 @@ public class MemberHandler02 implements Handler02 {
           member.working);
     }
   }
-  static void update() {
+  void update() {
     System.out.println("[회원정보 변경]");
 
     System.out.print("번호? ");
-    int index =Integer.parseInt(scn.nextLine());
+    int index =Integer.parseInt(this.scn.nextLine());
 
-    if(index < 0 || index >= ArrayList022.start) {
+    if(index < 0 || index >= this.memberList.start) {
       System.out.println("무효한 회원입니다.");
       return;
     }
 
-    Member member = (Member) ArrayList022.retrieve(index);
+    Member member = (Member) this.memberList.retrieve(index);
 
     System.out.printf("(%s)에서 수정할 이름", member.name);
     String name = scn.nextLine();
@@ -125,18 +132,18 @@ public class MemberHandler02 implements Handler02 {
     System.out.println("회원정보 변경이 완료되었습니다.");
   }
 
-  static void view() {
+  void view() {
     System.out.println("[회원 상세조회]");
 
     System.out.print("번호? ");
-    int index =Integer.parseInt(scn.nextLine());
+    int index =Integer.parseInt(this.scn.nextLine());
 
-    if(index < 0 || index >= ArrayList022.start) {
+    if(index < 0 || index >= memberList.start) {
       System.out.println("무효한 회원입니다.");
       return;
     }
 
-    Member member = (Member) ArrayList022.retrieve(index);
+    Member member = (Member) this.memberList.retrieve(index);
 
     System.out.printf("이름: %s\n", member.name);
     System.out.printf("email: %s\n", member.email);
@@ -144,24 +151,24 @@ public class MemberHandler02 implements Handler02 {
     System.out.printf("재직여부: %s\n", member.working ? "예" : "아니오");
   }
 
-  static void delete() {
+  void delete() {
     System.out.println("[회원 탈퇴]");
 
     System.out.print("번호? ");
-    int index =Integer.parseInt(scn.nextLine());
+    int index =Integer.parseInt(this.scn.nextLine());
 
-    if(index < 0 || index >= ArrayList022.start) {
+    if(index < 0 || index >= this.memberList.start) {
       System.out.println("무효한 회원입니다.");
       return;
     }
 
     System.out.print("정말 탈퇴하시겠습니까? y/N");
-    if(!scn.nextLine().equals("y")) {
+    if(!this.scn.nextLine().equals("y")) {
       System.out.println("탈퇴를 취소하였습니다.");
       return;
     }
 
-    ArrayList022.remove(index);
+    this.memberList.remove(index);
 
     System.out.println("회원을 탈퇴하였습니다.");
   }

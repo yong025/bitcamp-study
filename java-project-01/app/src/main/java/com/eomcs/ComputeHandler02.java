@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 public class ComputeHandler02 implements Handler {
 
-  static Scanner scn;
+  Scanner scn;
+
+  ComputeHandler02(Scanner scn){
+    this.scn = scn;
+  }
 
   public void execute() {
     while(true) {
