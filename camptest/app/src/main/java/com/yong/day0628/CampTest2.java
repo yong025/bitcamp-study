@@ -3,14 +3,14 @@ package com.yong.day0628;
 
 import java.util.Scanner;
 
-public class CampTestOriginal3 {
+public class CampTest2 {
 
   Scanner sc=new Scanner(System.in);
   boolean[] camp = new boolean[5]; //배열선언되면 자동으로 false초기값 세팅
   int num=0;
 
   public static void main(String[] args) {
-    CampTestOriginal3 guest = new CampTestOriginal3(); 
+    CampTest2 guest = new CampTest2(); 
     System.out.println("1차원배열 캠프예매 28일월요일 3:40 ");
     int sel=9; 
 
