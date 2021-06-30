@@ -1,4 +1,4 @@
-package com.yong.day0630;
+package com.yong.day0630Inheritance;
 
 public class Child extends Father { //Father, Mother 상속을 두개 한번에는 받을 수 없음.
   public static void main(String[] args) {

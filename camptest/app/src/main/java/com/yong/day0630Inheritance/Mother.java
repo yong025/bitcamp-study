@@ -1,4 +1,4 @@
-package com.yong.day0630;
+package com.yong.day0630Inheritance;
 
 public class Mother {
   public void car(String name) {

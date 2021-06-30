@@ -1,4 +1,4 @@
-package com.yong.day0630;
+package com.yong.day0630Inheritance;
 
 public class Me {
   public static void manin(String[] args) {
