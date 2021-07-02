@@ -18,8 +18,10 @@ public class Memo extends Frame implements WindowListener, ActionListener {
   private Button btnSend = new Button(" send ");
   private TextField tf = new TextField(20); // 한줄입력
   private TextArea ta = new TextArea(); // 가로row*세로column
-  private Font ff = new Font("D2", Font.BOLD, 20);
+  private Font ff = new Font("D2", Font.BOLD, 20);// sf는 static field = 전역변수
+  //꼭 스타일이 먼저 나오고 폰트 크기를 지정해야함
   private Panel pan = new Panel();//레이아웃 받침대 = 쟁반역할 
+  //panel
 
   public Memo() {
     //초간단 메모장
@@ -30,7 +32,12 @@ public class Memo extends Frame implements WindowListener, ActionListener {
     this.add("South", pan); //pan = panel 판넬
 
     //이벤트 연결리스너 추가
-    this.addWindowListener(this); //앞 this 뒤 this
+    //    WindowListener wl = new WindowListener(); 문법 에러 인터페이스는 new를 사용XXXXXXXX
+    this.addWindowListener(this); //앞 this 뒤 this 괄호안의 매개인(WindowListener)
+    //  AAA ac = new AAA(); //에러발생
+    //    Memo mm = new Memo(); 위의 this도 가능 mm선언후 실행도 가능
+    //    addWindowListener(mm);
+
     tf.addActionListener(this);
     btnSend.addActionListener(this);
     btnExit.addActionListener(this);
@@ -84,10 +91,16 @@ public class Memo extends Frame implements WindowListener, ActionListener {
     System.exit(0);
   }//end
 
-
+  public void bitCamp() {
+    //  AAA ac = new AAA(); //에러발생
+    //  WindowListener wl = new WindowListener();
+  }//end
   public static void main(String[] args) {
     Memo memo = new Memo();//생성자 호출
-    //    memo.windowClosing(null);//에러는 아님
+    //    AAA aa = null; // 선언만
+    //    AAA ac = new AAA(); //에러발생
+    //    WindowListener wl = new WindowListener();
+
 
 
   }//end

@@ -18,3 +18,4 @@ public class UserKD {
     System.out.println("주문한 음료는 " +msg+ "입니다.");
   }//end
 }//class END
+//camptest0628폴더의 Dunkin과 함께 사용

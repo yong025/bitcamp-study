@@ -68,14 +68,21 @@ public class Work06Hotel {
     System.out.println(">몇호에 투숙?");
     int room = Integer.parseInt(sc.nextLine());
     name[floor-1][room-1] = cos;
-
-    if (cos == null) {   
-      System.out.println(floor + "0" + room + "호실, 퇴실 완료되었습니다.");
-    } else {
-      System.out.println(floor + "0" + room + "호실은 아무도 투숙하고 있지 않습니다.");
+    //
+    //    if (cos == null) {   
+    //      System.out.println(floor + "0" + room + "호실 퇴실완료입니다.");
+    //      return;
+    //    } else {
+    //      System.out.println(floor + "0" + room + "호실 아무도 투숙하고 있지 않습니다.");
+    //    }
+    //  }
+    if( name[floor-1][room-1] == null ){
+      System.out.println("# 이미 빈 방입니다.");
+      return ;
     }
-
-  }//end
+    name[floor-1][room-1] = null;
+    System.out.println("# 성공적으로 checkOut 되었습니다.");
+  }//checkOut end
 
   public void map(){ //non-static메소드 
     System.out.println("\n\t[ "+ title +" 투숙 상태 ]");
@@ -97,8 +104,20 @@ public class Work06Hotel {
     }//for i end
   } //map end
 
-  public void list() { //영림쌤 구현해서 보여드리겠습니다 
+  public void list() { 
 
+
+    System.out.println("\n\t[ list ]");
+    for(int i = 0; i < 3; i++) {
+      for(int j = 0; j < 5; j++) {
+        if(name[i][j] == null) {
+          System.out.print("" + (i+1)+"0"+(j+1) + "호" + "□\t" + "\t");
+        } else {
+          System.out.print("" + (i+1)+"0"+(j+1) + "호" + "■\t" + "name[i][j]" + "\t");
+        }
+      }
+      System.out.println();
+    }//for i end
   }//end
 
   public static void main(String[] args) {

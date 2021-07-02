@@ -22,6 +22,8 @@ public class Work05Hotel {
   Scanner sc = new Scanner(System.in);
 
   public void process() {
+    map();
+
     int sel = 9;
 
     while(true) {
@@ -55,7 +57,7 @@ public class Work05Hotel {
     int room = Integer.parseInt(sc.nextLine());
     System.out.println(">투숙객 이름?");
     String cos = sc.nextLine();
-    name[room-1][floor-1] = cos;
+    name[floor-1][room-1] = cos;
 
 
 
@@ -64,34 +66,46 @@ public class Work05Hotel {
 
   public void checkOut() {
 
+
   }//checkout end
 
   public void map() {//printAll() = list() = display()  
-    System.out.println("\n\t["+title+"투숙 상태]");
-    for(int i = 0; i < 3; i++) {
-      for(int b = 0; b < 5; b++) {
+    System.out.println("\n\t[ "+ title +" 투숙 상태 ]");
+    for(int i = 0; i < 3; i++){
+      for(int b = 0; b < 5; b++){
         System.out.print((i+1)+"0"+(b+1)+"\t");
       }
-      System.out.println();//이름공백표시
 
-      for(int j =0; j < 5; j++) {
-        if(this.name[i][j] == null) {
-          System.out.println("\t");
+      System.out.println(); //이름표시 공백란입니다
+
+      for(int j = 0; j < 5; j++){
+        if(this.name[i][j] == null){
+          System.out.print("\t");
           continue;
-        }
+        }//if end
         System.out.print(this.name[i][j]+"\t"); 
-      }
-      System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ"); // \n꼭넣으세요
-    }
-
-  }
+      }//j end
+      System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ"); // \n꼭넣으세요 
+    }//for i end
+  } //map end
   public void list() {//영림 구현
 
+    System.out.println("\n\t[ list ]");
+    for(int i = 0; i < 3; i++) {
+      for(int j = 0; j < 5; j++) {
+        if(name[i][j] == null) {
+          System.out.print("" + (i+1)+"0"+(j+1) + "호" + "□\t" + "\t");
+        } else {
+          System.out.print("" + (i+1)+"0"+(j+1) + "호" + "■\t" + "name[i][j]" + "\t");
+        }
+      }
+      System.out.println();
+    }//for i end
   }//check end
 
 
   public static void main(String[] args) {
-
+    System.out.println("7월2일");
     Work05Hotel sh = new Work05Hotel("호텔 신라");
     sh.process();
 
