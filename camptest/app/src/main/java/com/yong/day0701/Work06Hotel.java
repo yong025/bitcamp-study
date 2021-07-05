@@ -54,9 +54,12 @@ public class Work06Hotel {
     String cos = sc.nextLine();
     name[floor-1][room-1] = cos;
 
+    if(cos == null) {
+      System.out.println(" 이미 투숙중인 방입니다.");
+      return;
+    }
+    System.out.println(floor + "0" + room +  " 호실 성공적으로 체크인 되었습니다.");
 
-
-    System.out.println("예약을 완료했습니다.");
   }//end
 
   public void checkOut() {
@@ -67,22 +70,22 @@ public class Work06Hotel {
     int floor = Integer.parseInt(sc.nextLine());
     System.out.println(">몇호에 투숙?");
     int room = Integer.parseInt(sc.nextLine());
-    name[floor-1][room-1] = cos;
-    //
-    //    if (cos == null) {   
-    //      System.out.println(floor + "0" + room + "호실 퇴실완료입니다.");
-    //      return;
-    //    } else {
-    //      System.out.println(floor + "0" + room + "호실 아무도 투숙하고 있지 않습니다.");
-    //    }
-    //  }
-    if( name[floor-1][room-1] == null ){
-      System.out.println("# 이미 빈 방입니다.");
-      return ;
+
+
+    if (name[floor-1][room-1] == null) {   
+      System.out.println(floor + "0" + room + "호실 아무도 투숙하고 있지 않습니다.");
+      return;
+    } else {
+      System.out.println(floor + "0" + room + "호실 퇴실완료입니다.");
     }
-    name[floor-1][room-1] = null;
-    System.out.println("# 성공적으로 checkOut 되었습니다.");
-  }//checkOut end
+  }
+  //    if( name[floor-1][room-1] == null ){
+  //      System.out.println("# 이미 빈 방입니다.");
+  //      return ;
+  //    }
+  //    name[floor-1][room-1] = null;
+  //    System.out.println("# 성공적으로 checkOut 되었습니다.");
+  //  }//checkOut end
 
   public void map(){ //non-static메소드 
     System.out.println("\n\t[ "+ title +" 투숙 상태 ]");
