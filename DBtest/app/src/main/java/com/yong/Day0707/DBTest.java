@@ -28,7 +28,7 @@ public class DBTest {
 
           case 1 : db.Insert(); break;
           case 2 : db.Delete(); break;
-          case 3 : 
+          case 3 : db.update(); break;
           case 4 : db.Select(); break;
           case 5 : 
             System.out.println("프로그램을 종료합니다.");
@@ -85,7 +85,7 @@ public class DBTest {
 
       System.out.println("----------데이터 출력-------------");
       System.out.println("\t\t\t\t전체 레코드 갯수:" + Gtotal);
-      System.out.println("코드\t이름\t제목\t날 짜\t\t조회수");
+      System.out.println("번\t이름\t제목\t날 짜\t\t조회수");
       while(RS.next() == true) {
         //
         int ucode = RS.getInt("code");
@@ -125,21 +125,28 @@ public class DBTest {
 
   public void update () {
     try {
-      System.out.println("\n수정할 코드번호 : ");
-      int a = Integer.parseInt(sc.nextLine());
+      //수정처리는 대상필드 name,title
 
-      System.out.println("\n수정할 코드 내용 : ");
-      int b = Integer.parseInt(sc.nextLine());
+      System.out.print("수정할 code 입력  :");
+      String code = sc.nextLine(); 
+      System.out.print("name 수정내역 입력  :");
+      String name = sc.nextLine(); 
+      System.out.print("title 수정내역 입력  :");
+      String title = sc.nextLine(); 
+      //      msg = "update test set code = " + scode +  ", name = '" + name + "' ,title = '" + title + "' where code = " + code  ;
+      msg = "update test set name='"+name+"', title='"+title+"'  where code = "+code;
 
-      msg = "update test set code = " + b + " where " + a ;
       System.out.println(msg);
-      int aa = ST.executeUpdate(msg);
 
-      if (aa>0) {
-        System.out.println(a + "코드 데이터 수정");
-      } else {System.out.println(a + "코드 데이터 수정 실패했습니다.");}
 
-    }catch (Exception e) {System.out.println("에러이유" + e);}
+      int OK = ST.executeUpdate(msg);
+      if (OK>0) {
+        System.out.println(code + "데이터 수정 성공");
+      }else {
+        System.out.println(code + "데이터 수정 실패");
+      }
+      Select();
+    }catch(Exception ex) { }    
   }
 }//class close
 

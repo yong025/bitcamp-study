@@ -94,14 +94,12 @@ public class Board { //test테이블
 
       System.out.print("수정할 code 입력  :");
       String code = sc.nextLine(); 
-      System.out.println("code 수정내역 입력 :");
-      String scode = sc.nextLine(); 
       System.out.print("name 수정내역 입력  :");
       String name = sc.nextLine(); 
       System.out.print("title 수정내역 입력  :");
       String title = sc.nextLine(); 
       //      msg = "update test set code = " + scode +  ", name = '" + name + "' ,title = '" + title + "' where code = " + code  ;
-      //      msg = "update test set name='"+ename+"', title='"+etitle+"'  where code = "+ecode;
+      msg = "update test set name='"+name+"', title='"+title+"'  where code = "+code;
 
       System.out.println(msg);
 
