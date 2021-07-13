@@ -9,17 +9,19 @@ public class id  extends DB {
   String msg="";
   int Gtotal = 0;  
   Scanner sc = new Scanner(System.in);
-
-  public void select() {
+  static String id;
+  static String password;
+  public  void select() {
     DBbase();
     try {
       msg = "select * from id";
       RS = ST.executeQuery(msg);
-      System.out.println(msg);
+      //      System.out.println(msg);
 
       //      System.out.println("            데이터 출력            ");
       //      System.out.println("\t\t\t\t전체 레코드 갯수:" + Gtotal);
-      //      System.out.println("번호\t이름\t제목\t\t날 짜");
+      System.out.println("ID\t등급\tname\temail\t\tmobile\t\t날짜\t\t좋아요\t소속");
+      System.out.println();
       while(RS.next() == true) {
         String id = RS.getString("id");
         int grade = RS.getInt("grade");
@@ -30,7 +32,7 @@ public class id  extends DB {
         Date date  = RS.getDate("written");
         int recommended = RS.getInt("recommended");
         String belongs = RS.getString("belongs");
-        System.out.println(id + "\t" + grade + "\t" + pwd + "\t" + name+ "\t" + email+ "\t" + mobile+ "\t" + date+ "\t" + recommended+ "\t" + belongs);
+        System.out.println(id + "\t" + grade +  "\t" + name+ "\t" + email+ "\t" + mobile+ "\t" + date+ "\t" + recommended+ "\t" + belongs);
       }
     }catch (Exception e) { System.out.println("에러이유" + e); }    
   }
@@ -39,9 +41,9 @@ public class id  extends DB {
   public void login() throws SQLException {
     DBbase();
     System.out.print("id입력: ");
-    String id = sc.nextLine();
+    id = sc.nextLine();
     System.out.print("password입력: ");
-    String password =sc.nextLine();
+    password =sc.nextLine();
 
     String crt = "select count(id) as cnt from id where id = '" + id +  "' and pwd = '" + password + "'";
     //id와 pwd입력값이 데이터베이스와 일치하면 id의 갯수를 카운트한다. 변수 crt에 저장
@@ -79,6 +81,22 @@ public class id  extends DB {
       }
     }
   }
+
+  public void Logout() throws SQLException {
+    System.out.println("정말로 로그아웃 하시겠습니까 ? [ y/ N ]");
+    if(sc.nextLine().equals("y")) {
+      if(id == null && password == null) {
+        System.out.println("로그인 되어있지 않습니다.");
+      }else { 
+        id= null;
+        password = null;
+        System.out.println("로그아웃되었습니다.");
+      }
+    }else {
+      System.out.println("로그아웃 취소되었습니다.");
+    }
+  }
+
 
   public void insert() {
     DBbase();
@@ -134,25 +152,5 @@ public class id  extends DB {
       }//y/N탈퇴 end
     }catch (Exception e) {System.out.println("에러이유" + e);}
   }//delete end
-
-
 }
 
-
-//  public void choice() {
-//    select();
-//    loop: while(true) {
-//      System.out.print("\n1.회원가입 2.회원정보수정 3.회원탈퇴 4.back");
-//      System.out.print("\n입력 :");
-//      int sel = Integer.parseInt(sc.nextLine());
-//
-//      switch (sel) {
-//        case 1: insert(); break;
-//        case 2:  break;
-//        case 3:  break;
-//        case 4:  break loop;
-//        default:
-//          System.out.println("지원하지 않는 명령입니다.");
-//      } 
-//    }
-//  }

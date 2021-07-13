@@ -11,20 +11,24 @@ public class Member {
     DB fb = new DB();
     id id = new id();
 
-
     fb.DBbase();
     try {
       while(true) {
 
         id.select();
-        System.out.println("1.회원 가입 2.로그인 3.회원 탈퇴 4.종료 ");
+        System.out.println("1.회원 가입 ");
+        System.out.println("2.로그인");
+        System.out.println("3.회원 탈퇴");
+        System.out.println("4.로그아웃");
+        System.out.println("5.종료 ");
         System.out.print("입력 :");
         int level = Integer.parseInt(sc.nextLine());
         switch(level) {
           case 1 : id.insert(); break;
           case 2 : id.login(); break;
           case 3 : id.Delete(); break;
-          case 4 : 
+          case 4 : id.Logout(); break;
+          case 5:
             System.out.println("종료합니다.");
             System.exit(0);
           default :
@@ -34,8 +38,6 @@ public class Member {
       }//while end
     }catch (Exception e) { }
   }  
-
-
 }
 
 

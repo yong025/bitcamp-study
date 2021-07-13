@@ -9,7 +9,7 @@ public class DB {
 
   Connection CN=null; //DB서버연결정보 서버ip주소 계정id,pwd
   Statement ST=null;  //ST=CN.createStatement()명령어생성 삭제,신규등록,조회하라
-  ResultSet RS=null; //select조회결과값 전체데이터를 기억합니다
+  ResultSet RS=null;//select조회결과값 전체데이터를 기억합니다
   //  ResultSet RS2=null;
   //  Statement ST2=null;
   String msg="";
