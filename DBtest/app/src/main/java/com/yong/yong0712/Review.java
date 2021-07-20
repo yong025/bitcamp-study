@@ -119,7 +119,7 @@ public class Review extends DB {
       System.out.println("\n삭제할 게시글 번호 입력 : ");
       int a = Integer.parseInt(sc.nextLine());
 
-      msg = "delete from review where num = " + a ;
+      msg = "delete from review where title = aa and grade  = 3" + a ;
       System.out.println(msg);
       int aa = ST.executeUpdate(msg);
 
