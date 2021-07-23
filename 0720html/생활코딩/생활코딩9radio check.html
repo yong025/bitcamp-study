@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML checkbox radio</title>
+<meta charset="utf-8">
+</head>
+<body>
+  <form action="http://localhost.php">
+  <p>
+  <h1>색상 (단일선택)</h1>
+붉은색: <input type="radio" name="color" value="red"> <!-- radio는 원형선택박스 태그-->
+검은색: <input type="radio" name="color" value="black"> <!-- 같은 name으로 묶일 시 중복선택이 안되도록 그룹핑 -->
+파란색: <input type="radio" name="color" value="vlue" checked><!-- checked는 자동으로 ck 디폴트로 넣을 수 있음-->
+</p>
+<p>
+  <h1>사이즈 (다중선택)</h1>
+95: <input type="checkbox" name="size" value="95"> <!-- checkbox 체크박스 태그 -->
+100: <input type="checkbox" name="size" value="100"> <!-- 같은 name로 묶여도 다중선택이 가능 -->
+105: <input type="checkbox" name="size" value="105">
+  </p>
+  <input type="submit">
+</form>
+</body>
+</html>

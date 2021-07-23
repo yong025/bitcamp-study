@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> test14.html </title>
+    <style>
+        * {font-size: 16pt;}
+    </style>
+
+    <script>
+        function welcome(){
+            // alert('저희 홈페이지 방문을 환영합니다.');
+            console.log('오리의 방문을 환영합니다.');
+            console.log('결과 = ' + (1200*98));
+        }//end
+        function blueChange(){
+            target = document.querySelector('body');
+            target.style.backgroundColor='blue'
+        }
+        function whiteChange(){
+            target = document.querySelector('body');
+            target.style.backgroundColor='white'
+        } 
+    </script>
+</head>
+<body onload="welcome();">
+
+    <table border="1" width="1200" cellspacing="0">
+        <caption> <b> <font color="tomato">2021년 원본</font> </b> </caption>
+        <tr align="center" onmouseover="style.backgroundColor='yellow'" onmouseout="style.backgroundColor=''">
+            <td colspan="5">
+                <img src="images/aaa.gif" width="100">
+                <img src="images/aaa.gif" width="100">
+                <img src="images/aaa.gif" width="100">
+                <img src="images/aaa.gif" width="100">
+                <img src="images/aaa.gif" width="100">
+            </td>
+            <!--colspan 세로선 (열)합치기-->
+   <tr bgcolor="pink" onmouseover="style.backgroundColor='green'" onmouseout="style.backgroundColor=''">
+    <th>강의시간</th>
+    <th>강의과목</th>
+    <th>담당강사</th>
+    <th>강의실</th>
+    <th>기타비고</th>
+    </tr>
+    <tr>
+        <td>오전10:00</td>
+        <td>스프링</td>
+        <td>김영림</td>
+        <td>종로70</td>
+        <td rowspan="4">
+            💢전체 공지사항💢 <br>
+            &nbsp;*강의장문의 인포 <br>
+            &nbsp;*강의장좌석 순서 <br>
+            &nbsp;*웹엑스 연결 <br>
+        </td>
+    </tr>
+    <tr  onmouseover="style.backgroundColor='#00FFFF'" onmouseout="style.backgroundColor=''">
+        <td>오전12:00</td>
+        <td>SQL튜닝</td>
+        <td>빠방이</td>
+        <td>서초106</td>
+        
+    </tr>
+    <tr  onmouseover="style.backgroundColor='#00FFFF'" onmouseout="style.backgroundColor=''">
+        <td>오전3:00</td>
+        <td>SQL문법</td>
+        <td>강요천</td>
+        <td>서초346</td>
+        
+    </tr>
+    <tr  onmouseover="style.backgroundColor='#00FFFF'" onmouseout="style.backgroundColor=''">
+        <td>오전5:00</td>
+        <td>SQL짜라라</td>
+        <td>김용환</td>
+        <td>서초646</td>
+     </tr>
+    </table>
+    <p></p>
+    <!-- 태그 style기술할 때 this키워드 생략가능 -->
+    <button style="font-size: 24pt;" onclick="blueChange();">blue 바탕색 컬러변경</button>
+    <!-- <button style="font-size: 24pt;" onclick="this.style.backgroundColor='blue'">blue 바탕색 컬러변경</button> -->
+    &nbsp;&nbsp;
+    <button style="font-size: 24pt;" onclick="whiteChange();">light 바탕색 컬러 변경</button>
+</body>
+</html>

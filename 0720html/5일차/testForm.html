@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{font-size: 20pt; ;}
+    a{
+        font-size: 20pt;
+        text-decoration: none;
+        color: blue;
+        }
+        
+        a:hover{ 
+        font-size: 26pt;
+        text-decoration: none;
+        color: green;
+        font-family: 'comic sans ms';
+        }
+        
+</style>
+<script>
+function nullCheck(){
+    a = testform.code.value;
+    b = testform.title.value;
+    size = testform.code.value.length;
+    size1 = testform.title.value.length;
+    if(a == "" || a == null){
+        alert("코드를 입력하세요.")
+        testform.code.focus;
+        return;
+    }else if(size != 6){
+        alert("코드6자리로 입력부탁드립니다.")
+        testform.code.focus;
+        return;
+    
+    }else if(b == "" || b == null){
+        alert("제목을 입력하세요.")
+        testform.title.focus;
+        return;
+    }else if(size1 != 6){
+        alert("제목6자리로 입력부탁드립니다.")
+        testform.title.focus;
+        return;
+    }else{alert("제목입력완료")}
+
+}//end
+
+</script>
+<body style="background-color: cadetblue;">
+    <font color='blue'><b>화면만들기test</b></font> <br>
+
+    <form name="testform">
+        🤑코드: <input type="text" name="code" ><br>
+        🤑제목: <input type="text" name="title"><br>
+        <input type="button" value="저 장" onclick="nullCheck();">
+        <input type="button" value="취 소">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 화면2 </title>
+    <style>
+        * { font-size: 14pt; font-family: 'comic sans ms', Courier, monospace; }
+        a { font-size: 26pt; text-decoration: none;   color: blue;     }
+        a:hover { font-size: 36pt; text-decoration: none;  color: green; font-family: 'comic sans ms';   }
+
+        .input_group{
+            margin-left: 15px ;
+            font-weight: bold;
+            border: 1px dashed #d8ec7f7e;
+        }
+    </style>
+
+    <script>
+        function nullCheck() {
+            //document키워드는 생략가능합니다
+            a = document.myform.code.value;
+            if( a=="" || a == null){
+                alert("코드데이터 필수입력사항입니다 11:36") ;
+                myform.code.focus();
+                return false; //아래문장을 처리안하고 함수탈출
+            }else{myform.title.focus(); }
+
+            size = myform.code.value.length ; 
+            //alert('문자열길이 =' + size); 6자릿수 
+            if( size != 6  ){
+                alert('code자릿수는 6자리입니다 ');
+                myform.code.value="";
+                myform.code.focus();
+                return false;
+            }
+
+            b = document.myform.title.value;
+            if( b=="" || b == null){
+                alert("제목데이터 필수입력사항입니다 11:53") ;
+                myform.title.focus();
+                return false;
+            }
+        }//end
+    </script>    
+</head>
+
+<body>
+    <font  color='blue'><b> testForm3.html </b></font> <br>
+    <form name="myform">
+        코드: <input type="text" name="code" size="10"  >  <br>
+        제목: <input type="text" name="title"  size="10"  value="summer">  <br>
+        <input type="button" value="저 장"  onclick="javascript:nullCheck();">
+        <input type="reset" value="취 소">
+    </form>
+
+<hr color=red size=5>
+<div style="width:800px;">
+    <form name="bitform">
+        <fieldset>
+            <legend>testForm3.html</legend>
+            <div class="input_group">
+                   <label for="">이름:</label>
+                   <input type="text" name="user_name" id="" placeholder="ID입력"> 
+            </div>
+            <div class="input_group">
+                <label for="">비번:</label>
+                <input type="password" name="user_pwd" id="">
+            </div>
+            <div class="input_group">
+                <label for="">성별:</label>
+                <input type="radio" name="gender" value="M">남자
+                <input type="radio" name="gender" value="W">여자
+            </div>
+            <div class="input_group">
+                <label for="">직업:</label>
+                <select name="job" id="">
+                    <option value="">-----선택하세요-----</option>
+                    <option value="coder" >개발자</option>
+                    <option value="designer">디자이너</option>
+                    <option value="dba">DBA</option>
+                </select>
+            </div>
+            <div class="input_group">
+                <label for="">취미:</label>
+                <input type="checkbox" name="hobby" value="play">축구
+                <input type="checkbox" name="hobby" value="movie">영화보기
+                <input type="checkbox" name="hobby" value="java">자바공부
+                <input type="checkbox" name="hobby" value="study">개발하기
+            </div>
+            <div class="input_group">
+                <label for="">파일선택:</label>
+                <input type="file" name="myfile" id="">
+            </div>
+            <div class="input_group">
+                <label for="">메일:</label>
+                <input type="email" name="email"  placeholder="본인확인 (이메일)">
+            </div>
+            <div class="input_group">
+                <label for="">내용</label>
+                <textarea name="memo" cols="30" rows="3"></textarea>
+            </div>
+            <div class="input_group">
+                <label for="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="button" value="데이터전송">
+                <input type="reset" value="입력취소">
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+</body>
+</html>
+
+
+

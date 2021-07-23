@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<!-- html태그 head태그 body태그 -->
+<html>
+<head>
+<title>HTML-수업소개</title>
+<meta charset="utf-8">
+</head>
+<body>
+  <table border="1"> 
+    <!-- thead tbody tfoot 나누기 -->
+    <!-- table태그로 먼저 묶어줘야함 -->
+    <!-- 그 후 tr로 구획을 나눠줘야함 -->
+    <!-- 내용을 td로 나눠줌 -->
+    <thead>
+  <tr>
+ <th>이름</th>  <th>성별</th>  <th>주소</th> <th>회비</th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+    <td>최진혁</td>  <td>남</td>   <td rowspan="2">청주</td> <td>1000</td>
+  </tr>
+  <tr>
+    <td>최유빈</td> <td>여</td>                             <td>500</td>
+  </tr>
+</tbody> 
+<tfoot>
+  <tr>
+    <td colspan="3">합계</td>                              <td>1500</td>
+ </tr>
+</tfoot>
+</table>
+</body>
+</html>
