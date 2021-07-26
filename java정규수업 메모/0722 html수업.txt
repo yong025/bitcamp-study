@@ -1,0 +1,55 @@
+TABLE = 도표
+<tr></tr>
+<td></td>
+caption
+
+<anchor httpreference="사이트주소"> 안내문 </anchor>
+<a href="사이트주소"> 안내문 </anchor>
+<a href="문서이름"> 안내문 </anchor>
+
+<img source width heigh alt border>
+<img src width="가로" heigh="세로" alt="안내문" border="1">
+ src속성은 필수
+ width, alt속성은 옵션
+ 속성=attribute=property
+ 나중에 jQuery기술할 때 att
+
+<form method="get기본/post" action="연결문서기술">
+ 이미지 업로드 할때는 반드시 post방식 명시
+</form>
+
+<form method="get기본/post" action="서버에서 실행될 문서">
+  code
+  name
+  email
+  비번
+  그림올리기
+</form>
+
+<form method="get기본" >
+ url주소창에 정보노출
+ get방식 정보노출, 짧은내용, 용량작음
+ 이미지 업로드 할때는 반드시 post방식
+</form>
+
+<script>
+  founction nullCheck( ){
+    //리턴값이 없어도 void기술안함, 데이터타입 기술안함
+    if,반복문,연산처리기술
+    kor=90; eng=85;
+    sum = kor + eng;
+    return sum ;
+}
+</script>
+<script>
+  founction nullCheck( ){
+    //리턴값이 없어도 void기술안함, 데이터타입 기술안함
+    if,반복문,연산처리기술
+    a=24;
+    return true/false ; 아래문장을 처리하지않고 탈출
+    b=35;
+}
+</script>
+
+
+

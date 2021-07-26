@@ -1,0 +1,19 @@
+prepareStatement명령어
+-속도빠름
+-insert ~~, update ~~안적어도됨
+
+14일 시험
+-12시 시험
+DB접속 방법 (CONNECT)
+Class.forname
+cn(import) =driver ~~~
+테이블 생성 방법
+인서트
+이름 조회
+ ~~ like '%dd%'방법
+문자 char(50), varchar , varchar2(50)
+차이점  - char(50) 7글자 입력하면 7글자 확보 + 43byte확보 고정길이
+varchar(50)은 7글자만 확보 가변길이
+
+DDL,DML,DCL,TCL 명령어 차이
+

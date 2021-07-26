@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+classTest{
+메소드 public static void main(String[] args){
+Scanner sc = new Scanner(System.in) ;
+String message = " " ;
+
+System.out.println("사번입력>>>");
+int a = sc.nextInt( ); 3345
+
+
+System.out.println("이름입력>>>");
+String b = sc.nextLine( ); kim
+
+System.out.println("부서입력>>>");
+String c = sc.nextLine( ); 전산
+
+message = "insert into insa(sabun, name, buse)" + "values('" + a + "','" + b + "','" + c + "')" ;
+System.out.println ( message );
+//"insert into insa(sabun, name, buse) values ( 3345, 'kim', '전산' )" ;
+  }
+}
+
+==============================================
+set pagesize 2300 (커맨드창 사이즈 변경)
+set linesize 2300
+col buse for a10       (문자열은 앞에 a 붙이기)
+col sabun for 9999      (숫자 4자리수를 9999라고 표현)
+
+오라클에서 날짜는 sysdate /지난 날짜는 to_date(' 20/12/12')
+ex. select sysdate from dual;
+    insert  into sosi(id,name,salary,birth,email,grade)values(7789, 'hong', 79, sysdate, 'bc@sk.com', 'F');
+    insert into sosi  values(7,'김고은',100,to_date('17/12/12'),'aa@girl.com','A');
+
+오라클에서 순번번호 rownum 사용 (1,2,3,4 순서대로 출력)
+ex. select rownum, sabun, name, buse from insa;
+
+오라클에서 더미테이블 dual 
+ex. select 2+3 from dual;
+    select 2+3 as "합계"  from dual;
+
+오라클에서 번호발생 시퀀스 create sequence board_seq
+
+
+15페이지 DML데이터 조작하는 언어
+-insert into 테이블(필드명) values(값1, 값2, );
+-select 필드1, 필드2, ~~ from 테이블명 ;
+   select * from 테이블명 ;
+    select * from 테이블명 order by 필드명 asc ; (작은 순으로 정렬)
+    select * from 테이블명 order by 필드명 ;  << asc생략하면 기본
+    select * from 테이블명 order by 필드명 desc ; (큰 순으로 정렬)
+    
+-delete from 테이블명 where 필드명 = 필드값 ;
+
+-update 테이블명 set 필드명 = 변경할 필드값; (단점은 모든데이터가 전부 변경)
+   update 테이블명 set 필드명 = 변경할 필드값; where 조건 필드
+ ex. update 테이블명 set buse ='개발' , pay = pay*2.1 where sabun = 1100;
+      ( update insa set name='국민'. buse ='스타' where sabun = 7778; )
+ ( 사번이 1100인 사람이라는 조건을 주고 변경)
+
+select max(필드명) from 테이블명; << 필드에서 가장 큰 값 보여줌.
+
+*spool 경로\파일명 (cctv처럼 기록해줌)
+ 끝낼때는 명령어 spool off입력
+
+
+
+
+
+

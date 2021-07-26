@@ -1,0 +1,30 @@
+자바에서 기본으로 사용하는 클래스
+java.lang팩키지 소속
+  System, String, Integer, Math
+java.util팩키지 소속
+  Scanner
+
+java.awt팩키지 소속
+  Frame, Button, Color, TextField, TextArea, Panel 
+java.awt팩키지 소속
+   WindowListener, ActionListener, WindowEvent, ActionEvent
+
+
+PrintStream ps = System.out ;
+ps.println("안내문");
+System.out.println("안내문");
+
+4교시는 자습시간 
+
+
+첫번째 System껏 
+두번째 out껏 
+
+
+ static PrintStream out필드
+
+
+  class Game {
+   int count; 전역변수=필드 
+   public void terran(){int count;}
+  }

@@ -1,0 +1,46 @@
+자바에서 클래스 상속 가능, 인터페이스 상속 가능
+자바에서 클래스 상속은 단일 상속 표기가능, 다주앙속 표기 에러
+자바에서 인터페이스 상속은 다중 상속 표기 가능
+class AAA{  void apple(){ } void mac(){ } }
+interface BBB{ public void blue(); } // 메소드 선언만 = 추상 메소드
+class Car { pulbic void my( AAA aa ) { 내차 } }
+
+자바에서 this 키워드는 현재 클래스 상속받은 부모클래스 this.apple()접근
+자바에서 this 키워드는 현재 클래스 상속받은 부모클래스 this.mac()접근
+자바에서 this 키워드는 부모가 Non-static 키워드 있는 필드나 메소드는 접근 불가
+
+class Work extends AAA implements BBB{ 
+      //부모꺼 apple()강제재정의 안해도 됩니다.
+      //blue()메소드는 무조건 강제 재정의 원칙
+      @Override public void apple() { 보충수정 축소 확대구현}
+      @Override public void blue() { }
+      public void star() { this.apple(); apple(); }
+      public void star() { //둘다 맞음
+             Car cc = new Car();
+             AAA ob = new AAA();
+             cc.my(ob); 성공 
+             cc.my(this); 성공
+        }
+    }
+
+java.util패키지 소속
+ Scanner
+
+java.awt패키지 소속
+Frame화면=폼, Button, Color, TextField한줄입력란, TextArea여러행 열 입력란, Panel
+java.awt.event패키지 - 인터페이스 실습
+WindowListener, ActionListener, WindowEvent, ActionEvent
+java.lang패키지 소속
+ System클래스 필드
+PrintStream ps = System.out ;
+ps.println("안내문");
+System.out.println("안내문");
+
+접근지정 키워드 생성자, 메소드, 필드
+-public누구나, protected상속자식,private현재,default패키지
+
+
+back단 데이터저장고
+데이터베이스
+-오라클, mySQL, MS-SQL, 몽고디비, SQLite3, 티맥스 티베로
+ xe교육용 

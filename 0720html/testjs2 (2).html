@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{font-size: 16pt;}
+</style>
+<script>
+    sunsu = new Array();
+    my = new Array(".\images\aaa.gif",".\images\aaa.gif",".\images\aaa.gif" )
+
+</script>
+<body>
+    testjs2.html <p></p>
+    <script>
+        //자바스크립트 난수발생함수
+        //Math.round는 소수점 제거
+        a = Math.random();
+        document.writeln(a + '<br>');
+        b =Math.round(a);
+        document.writeln(b + '<br>');
+        c =Math.round(b) + 1;;
+        document.writeln(c + '<hr color=red size=5>');
+
+        //image대신 자바스크립트 그림출력
+        imagesource =new Array('./images/pic1.png','./images/a1.png', './images/a2.png',  './images/pig.png','./images/a3.png', './images/a4.png', './images/pic6.png'  );
+    
+        for(i=0; i<4; i++){
+            document.write(" <img src='" + imagesource[i] + "' border='1' width='100' height='70'> ");
+            
+        }
+    </script>
+</body>
+</html>

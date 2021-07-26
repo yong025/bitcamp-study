@@ -1,0 +1,53 @@
+Frame상속, ActionListener인터페이스,WindowListener인터페이스
+interface특징, 상속
+class상속
+work05Hoter.java 
+- 상속X, 인터페이스X, 재정의,메소드 중복
+- 메소드
+
+
+인터페이스
+1. 자바에서 interface생성
+1. class키워드 대신 interface기술
+2. 메소드 선언만 = 추상 메소드
+3. 추상 키워드 abstract생량 가능
+4. interface 상속 키워드 implements
+5. 상속 받은 클래스에서 반드시 재정의 = @Override (생략도 가능)
+6. interface 상속은 다중 상속 기술
+
+source >> override/implement methods 클릭
+
+interface AAA{ public void apple(); }
+interface BBB{ public void blue(); }
+interface CCC{ public void cherry(); }
+class LG{ public void blue(); }
+class LA{ public void cherry(); }
+//클래스는 한번에 여러개를 상속할 수 없기 때문에 인터페이스로 정의해 여러작업을 합친다.
+
+class BitCamp_4 implements AAA, BBB, CCC{
+  @Override public void apple(){  }
+  @Override public void apple(){  }
+  @Override public void apple(){  }
+}
+
+인터페이스
+- 인터페이스가 인터페이스 상송
+- 인터페이스의 메소드중에 default키워드 사용하면 바디{ }
+- 인터페이스의 필드에 static키워드 사용
+- 클래스에서 인터페이스 상속
+
+우리가 만든 인터페이스 제외하고 API제공 
+인터페이스 상속받으면 무조건 재정의
+java.awt윈도우 틀 패키지
+ Frame클래스 상속
+ Button클래스, TextField클래스, TextArea클래스
+java.awt.event액션 이벤트 
+	ㅣ- interface ActionListener 버튼 클릭, 이미지 클릭
+	ㅣ- interface KeyListener key key이벤트, 마우스 이벤트
+	ㅣ- interface WindowListener 윈도우 이벤트 7개 메소드 ==> 인터페이스
+
+//메소드의 상위클래스 확인 가능 (최상위 Object)
+//자바에서 만든 메소드 import 가능
+
+
+인터페이스 우리가 생성하지 않고 자바 API에서 제공되는 인터페이스 접근

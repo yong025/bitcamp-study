@@ -1,0 +1,117 @@
+문제1] salary 50보다 크거나 같고 90보다 작거나 같은 50~90
+         조건연산 관계연산  >= <=
+     ***논리연산 || && 대신 SQL문장에서는 or and
+         구간별 조건 >= <=
+         구간별 조건 between and
+         구간별 조건 in ( )  
+
+ ex . select * from sosi where salary >= 50 and salary <= 90;
+       select * from sosi where salary between 50 and 90;
+       [1][2][3][4]~~[9][10][다음] (게시판 페이징 between and사용)
+       select * from sosi where name in ('test', 'cake')
+       
+문자열 조회 필드명 like '%문자%';
+
+SQL> select * from sosi where  name= 'aaa'  ;
+SQL> select * from sosi where  name like '%a%'  ; 한글자라도 포함되면 조회
+SQL> select * from sosi where  name like '%e%'  ;
+
+null값 조회 is null;
+null값 아닌 것조회 is not null
+
+SQL> select * from sosi where  salary is null  ;
+SQL> select * from sosi where  salary is not null  ;
+
+문제2]
+이름과 급여 함께 포함 조회
+name 비슷한 e포함 like '%e%' salary >=70
+SQL> select * from sosi where name like '%e%' and salary >=70;
+
+데이터 조회
+SQL> select  max(salary) from sosi;
+SQL> select  min(salary) from sosi;
+SQL> select  avg(salary) from sosi;
+SQL>select  count(id)  from  sosi;   ;
+SQL>select  count(id) as "cnt" from  sosi;   - 따옴표를 사용해야 대소문자 구분
+SQL>select  count(id) as 'cnt' from  sosi; -에러
+SQL>select  count(id) as  cnt from  sosi;  - cnt대문자로 출력
+
+소수점 정리
+SQL> select name,salary from sosi ;
+SQL> select name,salary, trunc(salary,2) from sosi;   --소숫점2자릿수
+SQL> select name,salary, round(salary,2) from sosi;   --소숫점2자릿수 반올림
+SQL> select name,salary, floor(salary) from sosi;     --소숫점버리기
+
+SQL> select  trunc(avg(salary),2) from sosi;   --평균값에서 소숫점2자릿수
+SQL> select  round(avg(salary),2) from sosi;   --평균값에서 소숫점2자릿수 반올림
+SQL> select  floor(avg(salary)) from sosi;     --소숫점버리기
+
+*케이스 기준 나열
+SQL> select name, grade ,
+     case 
+       when grade = 'A'  then  '최고수준'
+       when grade = 'B'  then  '합격수준'
+       when grade = 'C'  then  '보통수준'
+       when grade = 'D'  then  '좀노력'
+       when grade = 'F'  then  '재수강'
+      end   
+   from sosi;
+
+- decode() : case문과 같은 기능 
+SQL> select id, name, grade,
+     decode( grade , 'A', '10번', 'B', '20번', 'C', '30번', ' ')
+     from sosi ;
+
+자바언어 + 오라클 데이터베이스 연결
+1번째] 반드시 필수 라이브러리 ~~>jar
+2번째] 반드시 import java.sql.*;
+
+직접 자바코드를 기술하는 스크립트 부분 = 구현 = 처리하는 부분
+3번째] java.lang패키지
+            class 클래스존재 정보를 연결하는 역학
+4번째] connection연결정보, statement명령, preparedstatement명령
+          ResultSet 조회 관련 데이터 기억
+5번째]명령어 생성 Strtement ST = CN.createStatement( ) ;
+6번째] 쿼리문 DML기준 String msg=  " select/insert/delete/update..  * from test " ; 
+7번째] 쿼리문 DML문장 실행
+          = executeQuery("select ~~"); 한건출력, 다수출력, 전체출력-select별도
+          int OK= executeUpdate("쿼리") 실행할 때 insert 쿼리, update쿼리, delete쿼리
+          
+          ResultSet RS = null ;
+          RS = extcuteQuery("select * from test "); 한건출력, 다수출력, 전체출력
+          RS변수가 데이터를 전체기억, 데이터 뭉치를 가지고 강의장 밖에 출입문에 서있음
+          while( ) {
+}
+
+
+try{
+ Class.forName("oracle.jdbc.driver.OracleDriver"); //오라클드라이브인식해서 로드  
+ String url="jdbc:oracle:thin:@127.0.0.1:1521:XE" ; //오라클서버주소및이름 
+ Connection CN=DriverManager.getConnection(url,"system","1234");  
+ 명령어생성할때 반드시 CN참조합니다
+}catch(Exception ex){ }
+
+select ==> Statement 명령어 => ResultSet 기억
+RS.next( ) == true => int total = RG.getInt("hit");
+
+
+crud
+create = insert, read = select, update = update, delete = delete
+dml처리 
+-데이터조작 select, insert, delete, update
+- 자바, 오라클 11g=12c, 웹문서 게시판, 쇼핑
+dom
+웹 브라우저 제어 document object model
+bom
+웹 브라우저 제어 browser object model
+
+
+
+
+
+
+
+
+
+
+

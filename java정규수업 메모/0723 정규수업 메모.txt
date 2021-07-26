@@ -1,0 +1,16 @@
+<script>
+   funcition 함수이름(){
+     //리턴값 표시x void,int,String표시안함
+    //변수타입 지정안함 a = myform.cod.value
+    //처리중 반복문이 아닌상태 탈출 return;
+ }
+</script>
+
+자바스크립트 배열
+var arr = new Array();
+     a[0] = 2234;  arr[1] = "고길동";  arr[2] = true ;
+var b = new Array(2234, "고길동", true) ;
+var c = [2234, "고길동", true] ;
+
+자바 int[] lotto = new int[6];
+자바 boolean[] camp = new boolean[6];

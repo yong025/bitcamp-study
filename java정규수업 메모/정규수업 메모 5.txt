@@ -91,8 +91,8 @@ char(2byte) unicode2(utf -16) (0 ~ 65535)
 
 확보된 메모리에 값 저장하기
 "=" (assignment operator) 할당 연산자 = 대입 연산자
-[변수명] = 값;
-ex. a(variable) = 20(literal);
+[데이터타입] [변수명] = 값;
+ex. int(data type) a(variable) = 20(literal);
 [변수명] = [변수명];
 ex. b = a;
 

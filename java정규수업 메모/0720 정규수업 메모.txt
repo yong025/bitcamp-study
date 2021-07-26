@@ -1,0 +1,40 @@
+GUI 환경 웹화면 + 데이터관리DB + java문법
+UI 화면 = form = frame = 폼
+ - CUI command user interface
+ - GUI graphic user interface
+     - html 태그 + css + 자바스크립트 javascript
+     - web 웹 웹브라우저 - IE, 엣지, 크롬, 사파리, 파이어폭스, 오페라, 웨일
+     - app 앱 스마트폰 - 안드로이드(자바, 코틀린), IOS(오브젝트C)
+     - client프레임워크 - 리액트, vue, angular
+
+인터넷 통신 프로토콜 tcp/ip p = protocol
+웹브라우저 통신 프로토콜 http = hyper text transfer protocol
+ http://www.naver.com
+ https://www.naver.com
+ 웹브라우저에서 인식하는 언어 html = hyper text mark-up language
+ DOM = 돔 object model = /BOM = browser object model
+ DataBase서버 인식하는 언어 SQL = structured query language
+                                          - DDL, DML, TCL, DCL
+파일 전송 통신 프로토콜 ftp
+메일 전송 통신 프로토콜 smtp
+TV통신 프로토콜 UDP
+
+웹브라우저에서 인식하는 html언어
+웹브라우저에서 인식하는 html언어는 태그=tag 구성이 됩니다. <> <<태그
+웹브라우저에서 인식하는 html언어의 단점은 자동라인개행이 안됩니다
+웹브라우저에서 인식하는 html언어 enter기능=라인개행 하는 태그 <br>엔터1번 <p>엔터2번
+
+    <html>
+       <head><title></title></head>
+       <body>
+	<image source="폴더이름/파일명.png"> </image>
+	<h2> 두번째큰제목 </h2>
+	<header2> 두번째큰제목 </header2>
+	<image source="폴더이름/파일명.png"> </image>
+         <body>
+    </html>
+
+vscode프로그램 실행
+왼쪽 5번아이콘 확장
+  live server 입력후 install
+  옅은 보라색 안테나 그림 설치

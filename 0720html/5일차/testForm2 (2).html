@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 화면2 </title>
+    <style>
+        * { font-size: 16pt;  font-family: 'comic sans ms', Courier, monospace; }
+        a { font-size: 26pt; text-decoration: none;   color: blue;     }
+        a:hover { font-size: 36pt; text-decoration: none;  color: green; font-family: 'comic sans ms';   }
+    </style>
+
+    <script>
+        function  nullCheck(){
+            //document키워드는 생략가능합니다
+            a = myform.code.value;
+            if( a=="" || a == null){
+                alert("코드데이터 필수입력사항입니다 11:36") ;
+                myform.code.focus();
+                return false; //아래문장을 처리안하고 함수탈출
+            }else{myform.title.focus(); }
+
+            size = myform.code.value.length ; 
+            if(size != 6 ) {
+                alert("코드6자리로 입력부탁드립니다");
+                myform.code.value="";
+                myform.code.focus();
+                return false;
+            }
+           
+            size = myform.title.value.length ; 
+            if(size != 6 ) {
+                alert("제목6자리 입력부탁드립니다");
+                myform.title.focus();
+                return false;
+            }
+            //alert('문자열길이 =' + size); 6자릿수 
+
+            b = document.myform.title.value;
+            if( b=="" || b == null){
+                alert("제목데이터 필수입력사항입니다 11:53") ;
+                myform.title.focus();
+                return false;
+            }
+        }//end
+    </script>    
+</head>
+
+<body>
+    <font  color='blue'><b> 화면만들기 </b></font> <br>
+    <form name="myform">
+        코드: <input type="number" name="code" size="10"  >  <br>
+        제목: <input type="text" name="title"  size="10"  value="summer">  <br>
+        <input type="button" value="저 장"  onclick="nullCheck();">
+        <input type="reset" value="취 소">
+    </form>
+</body>
+</html>

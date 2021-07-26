@@ -1,0 +1,163 @@
+오라클 설치 ck
+
+제어판-관리도구-서비스-오라클 서비스 확인
+
+작업폴더 설정 
+edit C:\Users\stell\git\bitcamp-study\bitcampSQL\insa.sql
+
+커맨드 입력
+C:\Users\stell > sqlplus  system/1234
+show user >> 나의 유저상태
+clear screen >> 스크린 초기화
+exit >> 탈출
+commit ; >> --새로고침
+desc (테이블명) >> 전체 구조 보여줌
+(SQL문장 문자는 ' ' 항목 구별은 , 사용)
+
+============================================
+DDL언어 = data definition language >> drop, create, alter
+DML언어 = data manipulation language
+ => 등록 insert into 테이블명 values()
+ => 추출 select 필드명 from 테이블명
+ => 삭제 delete from 테이블명
+ => 수정 update 테이블명 set 필드=변경값
+
+틀 = 문서구성 =table 구성화
+insert  신규등록
+select 데이터 추출
+
+DBA가 생성/ create table생성
+DBA가 생성/ drop table 삭제
+
+코더 프로그래머 기술 / insert ~테이블명 values( ~~ )
+코더 프로그래머 기술 / select ~ from 테이블명
+
+자바와의 연결(수요일 강의 예정)
+
+SQL> insa테이블 구성 => 구조 desc insa => insert ~~데이터추가 => select 추출
+
+=======================================================
+
+*테이블 생성 ex.
+ create table insa (
+  2  sabun number(4) not null primary key ,
+  3  name varchar(10) not null,
+  4  buse varchar(20) not null
+  5  );
+
+table created.
+ 
+*테이블 데이터 등록=추가 ex. 
+ insert into insa(sabun, name, buse)    ***((sabun, name, buse)는 생략가능)
+  2  values( 7800, 'hong', '전산개발');
+
+1 row created.
+
+SQL> insert into insa(sabun, name, buse)
+  2  values(1300, 'lee', '해외영업');
+
+1 row created.
+
+SQL> insert into insa(sabun, name, buse)
+  2  values(2400, 'kim', '해외전산개발');
+
+1 row created.
+
+*테이블 데이터 가져오기
+
+commit ; (데이터 갱신/새로고침)
+
+select sabun, name, buse from insa ;
+(sabun, name, buse 를 *하나로 대체 가능)
+
+*sql 문서 작업 실행
+edit C:\Users\stell\git\bitcamp-study\bitcampSQL\(파일명.sql)
+메모장에 커맨드 작업문 입력 후 저장
+
+*sql 메모장 불러오기
+start C:\Users\stell\git\bitcamp-study\bitcampSQL\(파일명.sql)
+or
+@ C:\Users\stell\git\bitcamp-study\bitcampSQL\(파일명.sql)
+
+*DDL create 활용(테이블 복사)
+insert into insa values( ~~); 로 5개 추가
+select sabun, name, buse from insa;
+
+create table bbs
+  as
+  select sabun, name, buse from insa ;
+(insa의 정보를 토대로 테이블 복사)
+
+*DDL언어 alter 명령어 필드열 하나 추가 (pay)  ex. 
+SQL> alter table insa(테이블명) add pay(생성할 필드명) number(3)(데이터타입) default 24(기본값 24로 변경);
+SQL> commit ;
+SQL> desc insa;
+
+(필드 열 수정)
+SQL> col 필드열 for a10; (부서 10자리로 수정)
+
+필드열 삭제
+
+SQL>alter table insa drop column pay;
+
+*테이블 데이터 내용 삭제 ex.
+SQL> select sabun, name, buse, pay from insa;
+SQL> delete * from insa; << 에러
+SQL> delete sabun, name, buse, pay from insa; 에러
+(delete는 필드명/ * 적으면 에러)
+SQL>delete   from insa where sabun = 1100; << 삭제완료
+SQL> select * from insa;
+SQL>delete   from insa where sabun = 3300; << 삭제완료
+SQL> select * from insa;
+SQL> delete  from insa; << 전체삭제
+SQL> select * from insa;
+
+
+
+*게시판 테이블 예시( 8,10페이지 참고)
+create table kakao( );
+create table guest( ); 방명록
+create table member(
+  ID varchar(16) not null primary key,
+  password비밀번호 varchar(16) not null,
+  name이름 varchar(10) not null,
+  주민번호 number(14) not null,
+  e-mail varchar(24) not null
+ ); 회원가입
+create table login( );
+create table board(
+num글번호 varchar(10) not null primary key,
+writer글쓴이 varchar(10) not null,
+title제목 varchar(20) not null,
+cnt조회수 number(3) not null 
+date날짜  number(10) not null,
+name이름 varchar(10) not null,
+password비밀번호 varchar(16) not null,
+img사진 varchar(30) not null,
+content내용 varchar(1000) not null,
+sns기록 varchar(30) (not null을 빼면, 넣어도 되고 안넣어도 되고)
+ ); 
+
+자바 코드 게시판 글 등록, 
+전체 내용 출력, -- 페이징, 검색
+사진,제목 클릭하면 한건 상세
+한건 상세가 보인 상태에서 수정, 삭제 
+- 댓글을 달 수 있음 
+
+front end //view 뷰 화면 web ~.html ~.jsp문서 java server page
+      처리구현을 자바언어 처리 제어, 연산, 반복, 메소드 리턴값, 매개인자
+      web문서가 포함 ~~.jsp문서 순수 자바문서 연결
+				l-main 메소드 빠짐
+back end // 데이터 베이스 
+
+create table admin( );
+create table product( );
+create table goods( );
+create table porder( );
+create table intfo( );
+create table notice( );
+
+
+
+
+
