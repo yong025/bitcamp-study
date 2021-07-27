@@ -1,10 +1,215 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Blog Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        a{
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
 </head>
 <body>
+
+<div class="container">
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+                <a class="link-secondary" href="#"><B>Subscribe</B></a>
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-dark" href="Layout.html"><strong>KimYongHwan</strong></a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a class="link-secondary" href="#" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-scroller py-1 mb-2" align="center">
+        <nav class="nav d-flex justify-content-between">
+            <a class="p-2 link-secondary" href="List.html"><b>List</b></a>
+            <a class="p-2 link-secondary" href="Gallery.html"><b>Gallery</b></a>
+            <a class="p-2 link-secondary" href="Register.html"><b>Resgister</b></a>
+            <a class="p-2 link-secondary" href="TestModal.html"><b>Modal</b></a>
+        </nav>
+    </div>
+</div>
+
+<main class="container">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic"><a href="https://github.com/yong025" target="_blank" class="text-white fw-bold">내 맘대로 포스트</a></h1>
+            <p class="lead my-3">내가 만든 Layout Page</p>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">하지훈</h3>
+                    <p></p>
+                    <p class="card-text mb-auto" ><font color="gray"><b>김용환 최애작가</b><br><p></p>산업과 예술의 경계에 선 가구 디자이너</font> </p>
+                    <div class="mb-1 text-muted">Jul 11</div>
+                    <a href="http://mdesign.designhouse.co.kr/article/article_view/101/71019" target="_blank" class="stretched-link"></a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="images/hajihoon.jpg" width="300" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></img>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">Moonsward</h3>
+                    <p></p>
+                    <p class="mb-auto"><font color="gray"><b>김용환 프렌드</b><br><p></p>캡슐 컬렉션을 선보이는 디자인 스튜디오</font></p>
+                    <div class="mb-1 text-muted">Jul 11</div>
+                    <a href="https://blog.naver.com/musinsastudio/222001321339" target="_blank" class="stretched-link"></a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="images/ms.jpg" width="300" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></img>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-5">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                <b>HOT ISSUE</b>
+            </h3>
+
+            <article class="blog-post">
+                <h2 class="blog-post-title"> <font size="5"> <b>청량감 폭발! 뉴발란스 327 블루 인기 급상승</b></font></h2>
+                <p class="blog-post-meta">January 1, 2021 by <a href="https://www.nbkorea.co.kr" target="_blank">Newbalance</a></p>
+
+                <p>뉴발란스 327 블루 신상품 인기 524위 급상승 <br>
+                    1970년대 빈티지 러닝 스니커즈에서 영감 얻은 스니커즈
+                    청량감 넘치는 블루 컬러가 인기 비결</p>
+                <hr>
+                <a href="https://magazine.musinsa.com/?m=news&uid=47501"><img src="images/nb.jpg"></a>
+                <p>뉴발란스의 새로운 아이코닉 스니커즈로 자리 잡은 327 신상품이 무신사 스토어 실시간 랭킹 상위권에 등장했다. 청량감 넘치는 블루 컬러가 7월 23일 11시 발매와 동시에 전체 카테고리 2위에 오르며 가파르게 순위가 상승했다. <br>
+                    함께 발매한 4가지 종류의 574 모델 또한 327의 폭발적인 반응에 힘입어 점차 스니커즈 카테고리 상위권으로 모습을 드러내는 중이다.
+                    뉴발란스의 327은 1970년대에 발매한 빈티지 러닝 스니커즈에서 영감을 얻은 아이템. 2020년 여름에 처음 발매해 선보이는 족족 품절을 기록하는 인기 모델로 급부상했으며 인기 컬러인 블랙은 2배 가까운 프리미엄을 기록하기도 했다.<br>
+                    어퍼는 가볍고 편안한 폴리에스터 소재를 사용했으며 마모가 쉽게 일어나는 토, 뒤꿈치 등 일부는 견고한 성질과 고급스러운 느낌을 주는 스웨이드를 더해 보완했다.<br>
+                    특히 이번에 발매한 327은 한여름의 더위를 해소하는 청량감 넘치는 분위기로 선보여 각별한 인기를 얻은 것으로 분석된다.
+                    지금 뉴발란스 무신사 스토어를 확인해 327 블루뿐만 아니라 베이지, 와인, 네이비, 그린 등 톡톡 튀는 개성을 담은 시즈널 컬러로 꾸민 574 스니커즈 신상품도 함께 확인하자.</p>
+                <dl class="article-tag-list list">
+                    <dt>태그</dt>
+                    <dd class="listItem">
+                        <a href="//magazine.musinsa.com/index.php?m=news&amp;swh=tag&amp;stx=NEW+BALANCE">NEW BALANCE</a>
+                    </dd>
+                    <dd class="listItem">
+                        <a href="//magazine.musinsa.com/index.php?m=news&amp;swh=tag&amp;stx=%EB%89%B4%EB%B0%9C%EB%9E%80%EC%8A%A4">뉴발란스</a>
+                    </dd>
+                    <dd class="listItem">
+                        <a href="//magazine.musinsa.com/index.php?m=news&amp;swh=tag&amp;stx=%EC%8A%A4%EB%8B%88%EC%BB%A4%EC%A6%88">스니커즈</a>
+                    </dd>
+                </dl>
+
+                <hr>
+
+                <h2><b>Stone Island 새로운 FW_’021 ’022 컬렉션</b></h2>
+                <a href="https://www.stoneisland.com/kr/stone-island/%EC%98%A4%EB%B2%84-%EC%85%94%EC%B8%A0"> <img src="images/st.jpg" width="750" height="600" target="_blank"></a>
+                <blockquote class="blockquote">
+                    <h3>STONE ISLAND</h3>
+                </blockquote>
+                <p>Stone Island는 1982년도, 볼로냐 태생의 아트 디렉터이자 지식인 Massimo Osti에 의해 이탈리아의 라바리노에서 캐주얼 의류 브랜드로 탄생한 이래 연구와 실험, 기능성 추구를 원칙으로 삼고 있습니다. 창립 이듬해인 1983년도에 이미 GFT 그룹에서 일하던 Carlo Rivetti는 Stone Island의 지분 50%을 매입했고, 십년 후 1993년에 Carlo와 Cristina 남매는 회사 전체를 입수하여 브랜드 고유의 정체성을 그대로 이어 발전시키게 됩니다.</p>
+                <h3>섬유 혁신</h3>
+                <p></p>
+                <p>혁신적인 디자인과 접목된 최첨단 섬유 개발의 상징으로 자리 잡은 Stone Island는 탄생 초기부터 스포츠웨어에 대한 새로운 정의를 제시하며 대중들로부터 열렬한 호응을 받았고, 오늘날에도 여전히 현대적인 룩을 추구하는 모든 젊은 세대로부터 사랑받고 있습니다. Stone Island의 진정한 원동력은 Sportswear Company의 연구팀에서 지속적인 실험을 통해 개발한 완성된 의상에 대한 특수 염색 및 가공법에 있습니다. 최첨단 기술과 전문 인력의 경험 및 능력이 완벽한 조화를 이루는 연구팀은 지금까지 60,000여 종류에 이르는 염색공법을 개발했습니다.</p>
+                <hr>
+                <a href="https://terms.naver.com/entry.naver?docId=3570289&cid=58789&categoryId=58807"> <img src="images/bb.jpg"></a>
+                <p></p>
+                <p></p>
+                <p><b>라이프 | 봄베이 사파이어 칵테일 레디백으로 홈 미니 바 완성!</b></p>
+                <ul><b>
+                    <li>봄베이 사파이어 칵테일 레디백 단독 한정 발매</li>
+                    <li>벌룬 글라스, 하이볼 글라스, 바스푼, 지거 등의 키트 구성</li>
+                    <li>다양한 장소에서 가볍게 가지고 다니기 좋은 사이즈</li>
+                </b></ul>
+                <p>이번 <strong>봄베이 사파이어 칵테일 레디백</strong>은 봄베이를 상징하는 청량감 가득한 블루 컬러의 캐리어 백 디자인이 돋보인다. 홈 칵테일, 캠핑, 피크닉 등 언제 어디서나 ‘프라이빗 바’로 쉽게 활용할 수 있으며 넉넉한 수납력을 지녀 여행용 미니 캐리어로도 가지고 다닐 수 있다. <strong>키트 구성품으로는 벌룬 글라스, 하이볼 글라스, 바 스푼, 지거, 머들러, 주얼 스터러, 피크닉 매트리스로 구성됐다.</strong> 우아함을 더하고 싶을 때는 벌룬 글라스를, 가볍게 즐기고 싶을 때는 하이볼 글라스로 마실 수 있는 두 가지 전용 잔이 돋보인다. </p>
+
+
+
+
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-light rounded">
+                    <h4 class="fst-italic"><b>About</b></h4>
+                    <p class="mb-0">Bitcamp 수강용으로 작성중에 있습니다. Templates을 이용하여 응용 및 추가 게시글 작성중입니다. 필요 항목을 입력예정입니다.</p>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="fst-italic">참고 사이트</h4>
+                    <ol class="list-unstyled mb-0">
+                        <li><a href="https://www.w3schools.com/"><b>W3schools</b></a></li>
+                        <li><a href="https://getbootstrap.com/"><b>Getbootstrap</b></a></li>
+                        <li><a href="https://www.nbkorea.com/"><b>Newbalance</b></a></li>
+                        <li><a href="https://www.stoneisland.com/kr"><b>StronIsland</b></a></li>
+                        <li><a href="https://magazine.musinsa.com/"><b>MusinsaMagazine</b></a></li>
+                        <p></p>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="blog-footer">
+    <p>2021 - 2021 YongHwan <a href="https://blog.naver.com/yong025" target="_blank"><img src="images/bl.png" width="43" height="40"></a>  <a href="https://youtube.com" target="_blank" class="youtube"><img src="images/you.png" width="40" height="45"></a> &middot; <a href="https://github.com/yong025" target="_blank">GitHub</a></p>
+    <p>
+        <a href="#">Back to top</a>
+
+    </p>
+</footer>
+
+
 
 </body>
 </html>
