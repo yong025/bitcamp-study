@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="726c3c50-43e8-4496-8308-a7209e22c9be" name="Changes" comment="&quot;HTML&quot;">
-      <change afterPath="$PROJECT_DIR$/Gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List.html" beforeDir="false" afterPath="$PROJECT_DIR$/List.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Read.html" beforeDir="false" afterPath="$PROJECT_DIR$/Read.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestModal.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestModal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcamp-project01" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcamp-project01" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +48,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1627349249651</updated>
-      <workItem from="1627349252086" duration="30667000" />
+      <workItem from="1627349252086" duration="30944000" />
+      <workItem from="1627466454279" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;HTML&quot;">
       <created>1627349612510</created>
@@ -78,6 +74,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;HTML&quot;" />
