@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KIOSK PRACTICE</title>
+</head>
+<body>
+
+<style>
+    * {
+        text-align: center;
+    }
+    ul {
+        list-style: none;
+    }
+    .items{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        padding: 50px;
+        width: 150px;
+        height: 120px;
+    }
+</style>
+<div class="container">
+    <ul class="items">
+        <li>
+            <div>
+                <img src="http://www.shakeshack.kr/images/sub/burger_200402_01.jpg"><br>
+                <span class="menu">쉑버거</span>
+                <span class="price">6900</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="http://www.shakeshack.kr/images/sub/burger_200402_02.jpg"><br>
+                <span class="menu">스모크쉑</span>
+                <span class="price">8900</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="http://www.shakeshack.kr/images/sub/burger_200402_03.jpg"><br>
+                <span class="menu">슈룸버거</span>
+                <span class="price">9400</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="http://www.shakeshack.kr/images/sub/burger_200402_04.jpg"><br>
+                <span class="menu">쉑스택</span>
+                <span class="price">12400</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<hr>
+
+<div>
+    <ul class="cart">
+    </ul>
+</div>
+<hr>
+
+<div>
+    <h2 id="total"></h2> <!-- total은 고유값(id)으로 설정 -->
+</div>
+
+<script>
+    var arr = document.querySelectorAll(".items li");//첫번째 li의 전체를 다 가지고와라 (배열 -> 루프)
+    var cart = document.querySelector(".cart");
+    var total = document.querySelector("#total");
+
+
+    for (var i = 0; i < arr.length; i++) { //2 번째
+        arr[i].addEventListener("click", function (e) {
+            console.log(e)
+            //JS에서 this라는 개념은 event에서 사용됨.
+            //화살표 함수에서는 this사용 불가
+
+            var targetLi = this;
+            var menu = targetLi.querySelector(".menu").innerHTML; // 메뉴클래스 태그 안의 문자데이터 값
+            var price = targetLi.querySelector(".price").innerHTML;
+
+            console.log(menu, price)
+
+            var str = "<li><span class='tmenu'>" + menu + "</span><span class='tprice'>" + price + "</span><button>삭제하기</button></li>" //내가 클릭한 후의 메뉴
+
+            cart.innerHTML += str;
+
+            makeTotal();
+
+        }, false);
+    }
+
+    cart.addEventListener("click", function (e) {
+
+        console.log(e.target)
+        //만일 e.target이 버튼이었다면 ~
+        if (e.target.matches('button')) {
+            var targetLi = e.target.parentElement
+            console.log(targetLi)
+            cart.removeChild(targetLi) // 카트에 있는 targetLi의 자식(div)을 삭제
+
+            makeTotal();
+        }
+
+    }, false);
+
+    function makeTotal(){
+
+        console.log("--------make Total");
+
+        var priceSpans = document.querySelectorAll(".tprice");//tprice의 span을 다 가지고와라 (배열 -> 루프)
+
+        var sum = 0;
+        for(var i =  0; i < priceSpans.length; i++) {
+            // priceSpans[i].innerHTML; //priceSpans의 길이만큼 루프를 돌면서 안의 값을 가져온다.
+            sum += parseInt(priceSpans[i].innerHTML); //가져온 값을 sum에 더한다. 문자열은 parseInt로 숫자열로 변환한다.
+        }
+        total.innerHTML = "총" + sum +"원"; //sum의 총 값을 total.innerHTML에 대입한다.
+    }
+
+</script>
+
+</body>
+</html>

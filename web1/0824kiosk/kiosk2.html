@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <ul class="items">
+        <li><div>빅맥</div></li>
+        <li><div>상하이버거</div></li>
+        <li><div>불고기버거</div></li>
+        <li><div>치즈버거</div></li>
+        <li><div>프렌치프라이</div></li>
+    </ul>
+</div>
+
+<div>
+    <ul class="cart">
+
+    </ul>
+</div>
+
+<script>
+
+    var cart = document.querySelector(".cart")
+
+    document.querySelector(".items").addEventListener("click", function (e) {
+
+        console.log(e.target); //타겟은 div가 나옴
+
+        cart.innerHTML += "<li>" + e.target.innerHTML + "<button>X</button></li>";
+        //event 위임
+        //카트에 이벤트를 걸어야함 현재 (li)는 동적이라 이벤트를 거는 타이밍엔 생성되어있지않음.
+        //이벤트는 존재하는 애한테만 걸 수 있다.
+    }, false) // jquery를 사용하면 더 편하게 쓸 수 있다.
+
+
+    cart.addEventListener("click", function (e){
+
+        console.log(e.target);
+
+        //만일 e.target이 버튼이었다면
+        //버튼을 가지고 있는 <li>태그를 찾고
+        //해당 <li>를 삭제
+
+        if(e.target.matches("button")){
+            var targetLi = e.target.parentElement
+            console.log(targetLi)
+            cart.removeChild(targetLi)
+        }
+
+
+
+    }, false);
+</script>
+
+
+</body>
+</html>

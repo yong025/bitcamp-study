@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <ul class="items">
+        <li><div>빅맥</div></li>
+        <li><div>상하이버거</div></li>
+        <li><div>불고기버거</div></li>
+        <li><div>치즈버거</div></li>
+        <li><div>프렌치프라이</div></li>
+    </ul>
+</div>
+
+<div>
+    <ul class="cart">
+
+    </ul>
+</div>
+
+<script>
+    var items = document.querySelectorAll(".items li div"); //class items안의 li태그 밑의 div
+    var cart = document.querySelector(".cart")
+
+    console.log(items);
+
+    for(var i=0; i<items.length; i++){
+        items[i].addEventListener( "click", (e) => {
+            var target = e.target; //target는 이벤트의 목적어(이벤트가 어디서 발생될지)
+            var str = target.innerHTML;
+            console.log(target.innerHTML);
+
+            cart.innerHTML += "<li>" + str + "<button onclick='removeFn(event)'>X</button></li>";
+
+
+        }, false )
+    }
+
+    function removeFn(event){//권장하지 않는 방법 ex.화면에 메뉴가 200개있다면 200개에 같은 이벤트를 다 걸어줘야함.
+        alert("AAAA");
+        console.log(event.target);
+        var target = event.target.parentNode;
+        console.log(target.parent)
+        cart.removeChild(target);
+    }
+</script>
+
+</body>
+</html>

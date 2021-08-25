@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    .bg{
+        background-color: aqua;
+    }
+    .bgviolet{
+        background-color: blueviolet;
+        height: 50vh;
+    }
+</style>
+
+<button id="btn">CLICK</button>
+
+<div id="target" class="bg">
+    <h1>Hello</h1>
+
+    <script>
+    var btn = document.querySelector("#btn"); // id는 #으로 찾는다.
+    var target = document.querySelector("#target");
+
+    btn.addEventListener("click",function(e){ //fucntion{ ...}까지가 callback함수 callback함수는 하나의 함수를 받을 수 있는데 그게 event
+        console.log("btn click");
+        console.log(e);
+        target.setAttribute("class", "bgviolet");
+    }, false)
+
+    </script>
+</div>
+</body>
+</html>

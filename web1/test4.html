@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //변수할당
+    //파라미터
+    //리턴타입
+    //객체배열
+
+function outer(){
+
+    var num = 0;
+
+    var inner = function () {
+        console.log("inner"); // outer만 쓸 수 있는 접근 제어
+    }
+    inner()
+}
+
+   //  inner()     이렇게는 실행가능  (호이스팅)을 통해 함수를 맨 위로 끌어올려줌
+   //
+   //  var num = 0;
+   //
+   // function inner() {
+   //      console.log("inner"); // outer만 쓸 수 있는 접근 제어
+   //
+   //  }
+
+</script>
+
+
+</body>
+</html>

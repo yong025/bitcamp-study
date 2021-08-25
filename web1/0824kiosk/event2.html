@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<style>
+  .d3 {
+    margin: 50px;
+    background-color: green;
+
+  }
+
+  .d2 {
+    margin: 50px;
+    background-color: pink;
+    height: 20vh;
+    text-align: center;
+    align-items: center;
+  }
+
+  .d1 {
+    margin: 50px;
+    background-color: blue;
+    height: 40vh;
+
+  }
+
+</style>
+
+<div class="d1">
+  <div class="d2">
+    <div class="d3">
+      <h2>HELLO</h2>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector(".d3").addEventListener("click",(e) => console.log("d3"), false); //false = 캡처링 금지
+
+    document.querySelector(".d2").addEventListener("click",(e) => {
+      e.stopPropagation()
+      console.log("d2")
+    } , false);
+
+
+    document.querySelector(".d1").addEventListener("click",(e) => console.log("d1"), false);
+
+  </script>
+</div>
+</body>
+</html>
